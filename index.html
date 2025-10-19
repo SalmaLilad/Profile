@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saanvi · Applied AI & Computing Portfolio</title>
 
-  <!-- Set saved theme ASAP (prevents flash) -->
+  <!-- Apply saved theme instantly -->
   <script>
     (function () {
       try {
@@ -18,8 +18,8 @@
   </script>
 
   <style>
-    /* ========== THEME VARIABLES (LIGHT DEFAULT) ========== */
-    :root{
+    /* ========== THEME VARIABLES ========== */
+    :root {
       --bg: #fafafa;
       --text: #12131a;
       --accent: #1f4aff;
@@ -29,8 +29,7 @@
       --shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* DARK THEME OVERRIDES */
-    [data-theme="dark"]{
+    [data-theme="dark"] {
       --bg: #12131a;
       --text: #e6e8f2;
       --accent: #ff4d4d;
@@ -41,126 +40,138 @@
     }
 
     /* ========== GLOBAL ========== */
-    *{box-sizing:border-box}
-    body{
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      margin:0;
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
       background: var(--bg);
       color: var(--text);
-      transition: background .3s ease, color .3s ease;
+      transition: background 0.3s, color 0.3s;
     }
-    h1,h2,h3{margin:0 0 .5rem; transition: color .3s ease;}
-    p{line-height:1.65; margin:.5rem 0 0}
 
-    header{
+    h1, h2, h3 { margin: 0 0 .5rem; transition: color 0.3s ease; }
+    p { line-height: 1.65; margin: .5rem 0 0; }
+
+    header {
       background: linear-gradient(90deg, var(--accent), #7f2aff);
-      color:#fff;
-      text-align:center;
-      padding:1.7rem 1rem;
-      position:relative;
+      color: #fff;
+      text-align: center;
+      padding: 1.7rem 1rem;
+      position: relative;
     }
 
-    .toggle{
-      position:absolute; right:1rem; top:1.2rem;
-      background:none; border:2px solid #fff; color:#fff;
-      padding:.35rem .7rem; border-radius:8px; cursor:pointer;
-      font-weight:700; transition: color .3s, border-color .3s, background .3s;
+    .toggle {
+      position: absolute; right: 1rem; top: 1.2rem;
+      background: none; border: 2px solid #fff; color: #fff;
+      padding: .35rem .7rem; border-radius: 8px; cursor: pointer;
+      font-weight: 700; transition: color .3s, border-color .3s;
     }
-    [data-theme="dark"] .toggle{ color:#ff4d4d; border-color:#ff4d4d; }
+    [data-theme="dark"] .toggle { color: #ff4d4d; border-color: #ff4d4d; }
 
-    nav{
+    nav {
       background: var(--panel);
-      text-align:center;
-      padding:1rem;
+      text-align: center;
+      padding: 1rem;
     }
-    nav a{
+    nav a {
       color: var(--text);
-      text-decoration:none;
-      margin:0 1rem; font-weight:600; transition: color .25s;
+      text-decoration: none;
+      margin: 0 1rem; font-weight: 600;
+      transition: color .25s;
     }
-    nav a:hover{ color: var(--accent); }
+    nav a:hover { color: var(--accent); }
 
-    section{
-      max-width:1000px; margin:2rem auto; padding:1rem;
-      background: var(--panel); border-radius:12px; transition: background .3s;
+    section {
+      max-width: 1000px; margin: 2rem auto; padding: 1rem;
+      background: var(--panel); border-radius: 12px;
+      transition: background .3s;
     }
-    section + section{ margin-top:.75rem; }
+    section + section { margin-top: .75rem; }
 
-    h2{
+    h2 {
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
-      padding-bottom:.35rem;
+      padding-bottom: .35rem;
     }
 
-    .card{
+    .card {
       background: var(--card);
-      border-radius:10px; padding:1rem; margin-bottom:1rem;
+      border-radius: 10px; padding: 1rem; margin-bottom: 1rem;
       box-shadow: var(--shadow);
       transition: transform .2s, background .3s, box-shadow .3s;
     }
-    .card:hover{ transform: translateY(-3px); }
+    .card:hover { transform: translateY(-3px); }
 
-    /* Skills table */
-    .skills-table{ width:100%; border-collapse:collapse; }
-    .skills-table td{ padding:6px 10px; vertical-align:top; }
-    .skills-table tr td:first-child{ white-space:nowrap; }
+    /* Skills Table */
+    .skills-table { width: 100%; border-collapse: collapse; }
+    .skills-table td { padding: 6px 10px; vertical-align: top; }
+    .skills-table tr td:first-child { white-space: nowrap; }
 
-    /* Grids for badges/affiliations */
-    .badge-grid{
-      display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap:16px; text-align:center; margin-top:1rem;
+    /* Badge Grids */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; text-align: center; margin-top: 1rem;
     }
-    .badge-card{
-      border:1px solid #ccc; border-radius:10px; padding:.9rem;
+    .badge-card {
+      border: 1px solid #ccc; border-radius: 10px; padding: .9rem;
       transition: background .3s, transform .2s, border-color .3s;
       background: var(--card);
     }
-    .badge-card img{ max-width:70px; margin-bottom:.5rem; }
-    .badge-card:hover{ transform: translateY(-3px); }
-    [data-theme="dark"] .badge-card{ border-color:#444; }
+    .badge-card img { max-width: 70px; margin-bottom: .5rem; }
+    .badge-card:hover { transform: translateY(-3px); }
+    [data-theme="dark"] .badge-card { border-color: #444; }
 
-    footer{
-      text-align:center;
+    footer {
+      text-align: center;
       background: linear-gradient(90deg, var(--accent), #7f2aff);
-      color:#fff; padding:1rem;
-      border-top-left-radius:12px; border-top-right-radius:12px;
-      max-width:1000px; margin:2rem auto 2.5rem;
+      color: #fff; padding: 1rem;
+      border-top-left-radius: 12px; border-top-right-radius: 12px;
+      max-width: 1000px; margin: 2rem auto 2.5rem;
     }
 
-    /* Section heading color sync for your previous selectors */
-    .section-heading{
-      border-bottom:2px solid var(--accent);
-      padding-bottom:.35rem;
+    .section-heading {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: .35rem;
     }
-    [data-theme="light"] .section-heading{ color:#2b4eff; border-color:#2b4eff; }
-    [data-theme="dark"]  .section-heading{ color:#ff4d4d; border-color:#ff4d4d; }
 
-    /* Responsive nav */
-    @media (max-width:700px){
-      nav a{ display:block; margin:.5rem 0; }
-      .toggle{ position:static; margin-top:.75rem; }
-      header{ padding-bottom:2.2rem; }
+    /* === GitHub Repo Link Color Fix === */
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.25s;
+    }
+    .project-link:hover { text-decoration: underline; }
+
+    /* yellow links in dark mode */
+    [data-theme="dark"] .project-link { color: #f7df1e; }
+    [data-theme="dark"] .project-link:hover { color: #ffe55e; }
+
+    /* Responsive Nav */
+    @media (max-width: 700px) {
+      nav a { display: block; margin: .5rem 0; }
+      .toggle { position: static; margin-top: .75rem; }
+      header { padding-bottom: 2.2rem; }
     }
   </style>
 </head>
 
 <body>
-  <!-- ===== HEADER ===== -->
   <header>
     <h1>Saanvi</h1>
     <p>Aspiring Applied AI & Machine Learning Student's Portfolio</p>
-    <button class="toggle" id="themeToggle" aria-label="Toggle color theme">🌙 Dark</button>
+    <button class="toggle" id="themeToggle">🌙 Dark</button>
   </header>
 
-  <!-- ===== NAV ===== -->
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
+    <a href="#enrichment">Enrichment</a>
+    <a href="#honors">Honors</a>
     <a href="#projects">Projects</a>
-    <a href="#achievements">Enrichment</a>
-    <a href="#honors">Honors & Awards</a>
     <a href="#skills">Skills</a>
-    <a href="#github">Main GitHub Repositories</a>
+    <a href="#github">Repositories</a>
     <a href="#githubstat">GitHub Stats</a>
     <a href="#certificates">Certificates</a>
     <a href="#affiliations">Affiliations</a>
@@ -170,21 +181,20 @@
   <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and using technology creatively to help my community. I'm also a figure skater, percussionist, and fiction writer who believes in bringing creative solutions to my software projects.</p>
+    <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and creative technology. I'm also a figure skater, percussionist, and fiction writer who believes in bringing creativity to AI and engineering.</p>
   </section>
 
   <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
-    <p><strong>Wayzata High School</strong>, Plymouth, MN<br>
-    <em>Class of 2029 — Premier public high school recognized for academic excellence and STEM rigor</em></p>
-    <p>Coursework includes AP Calculus AB and BC, Computer Programming in C++ (<em>Concurrent enrollment with Hennepin Technical College</em>), Applied Robotics, AP Human Geography, Spanish 4, Honors English, and Earth Science. Member of the High School 9th Grade Honor Band as a Percussionist.</p>
-    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025<br>
-    Coursework included Algebra I & II, Geometry, and Pre-Calculus, all completed with an A grade.</p>
+    <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
+    <em>Premier public high school known for academic excellence and STEM rigor.</em></p>
+    <p>Coursework includes AP Calculus AB/BC, C++ Programming, Applied Robotics, AP Human Geography, Honors English, and Spanish 4.</p>
+    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025 — Algebra I–II, Geometry, and Pre-Calculus (A grades).</p>
   </section>
 
   <!-- ===== ENRICHMENT ===== -->
-  <section id="achievements">
+  <section id="enrichment">
     <h2>Enrichment Programs</h2>
     <ul>
       <li>MIT BWSI Applied Engineering, AI & Future Technologies Program</li>
@@ -199,66 +209,44 @@
   <section id="honors">
     <h2>Honors & Awards</h2>
     <ul>
-      <li>2x National Spanish Exam Gold Medalist</li>
-      <li>US Figure Skating Pre-Gold Level Passed; Currently Training for Gold Skills Test</li>
-      <li>Represent High School in the Minnesota Junior Winds Honor Band</li>
-      <li>Percussionist with MacPhail Rimshots Ensemble</li>
-      <li>Gold Award for Honors Reading (Grades 6–8)</li>
+      <li>2× National Spanish Exam Gold Medalist</li>
+      <li>US Figure Skating Pre-Gold Level Passed</li>
+      <li>Member — Minnesota Junior Winds Honor Band</li>
+      <li>Percussionist — MacPhail Rimshots Ensemble</li>
     </ul>
   </section>
 
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
-
     <div class="card">
       <h3>CampQuest AI</h3>
-      <p>Web-scraping and AI project that helps students find STEM camps based on interest, location, and cost. Built with Python, Pandas, Beautiful Soup, and Llama3 LLM.</p>
+      <p>AI system recommending STEM camps by interest, cost, and region. Built with Python, Pandas, BeautifulSoup, and Llama3.</p>
     </div>
-
     <div class="card">
-      <h3>
-        <a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">
-          🚓 Police Search Bias Prediction
-        </a>
-      </h3>
-      <p>Machine learning model analyzing potential bias in police searches. Combines exploratory data analysis, fairness metrics, and model comparison to predict search likelihood.</p>
+      <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">🚓 Police Search Bias Prediction</a></h3>
+      <p>Machine learning model evaluating potential bias in police searches with fairness metrics and model comparison.</p>
     </div>
-
     <div class="card">
-      <h3>
-        <a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link">
-          🦠 COVID-19 Chest X-Ray Classification
-        </a>
-      </h3>
-      <p>Deep learning model using PyTorch to classify chest X-rays into COVID and non-COVID categories. Features convolutional networks, Grad-CAM explainability, and reproducibility framework.</p>
+      <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link">🦠 COVID-19 Chest X-Ray Classification</a></h3>
+      <p>Deep learning classifier using PyTorch to detect COVID from X-rays with Grad-CAM explainability.</p>
     </div>
-
     <div class="card">
-      <h3>
-        <a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">
-          🧠 Machine Learning Projects
-        </a>
-      </h3>
-      <p>Collection of machine learning projects using Python, covering topics from supervised learning to neural networks and data visualization.</p>
+      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">🧠 Machine Learning Projects</a></h3>
+      <p>Collection of notebooks covering regression, clustering, neural networks, and evaluation techniques.</p>
     </div>
-
     <div class="card">
-      <h3>
-        <a href="https://github.com/SalmaLilad/Pizza-Ordering-Project" target="_blank" class="project-link">
-          🍕 Pizza Ordering App
-        </a>
-      </h3>
-      <p>An interactive pizza ordering system built in Python. Includes both a console and a Tkinter GUI version with dynamic pricing, toppings selection, and an engaging interface.</p>
+      <h3><a href="https://github.com/SalmaLilad/Pizza-Ordering-Project" target="_blank" class="project-link">🍕 Pizza Ordering App</a></h3>
+      <p>Interactive Tkinter + CLI pizza order system with live pricing and toppings selection.</p>
     </div>
   </section>
 
-  <!-- ===== SKILLS ===== -->
+    <!-- ===== SKILLS ===== -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <table class="skills-table">
       <tr><td><strong>Programming Languages:</strong></td><td>Python, Java, Wolfram / Mathematica, Bash</td></tr>
-      <tr><td><strong>Frameworks & Libraries:</strong></td><td>Numpy, Pandas, Matplotlib, Scikit-learn, Beautiful Soup, Tkinter, Flask</td></tr>
+      <tr><td><strong>Frameworks & Libraries:</strong></td><td>Numpy, Pandas, Matplotlib, Scikit-learn, BeautifulSoup, Tkinter, Flask</td></tr>
       <tr><td><strong>Databases:</strong></td><td>MySQL</td></tr>
       <tr><td><strong>Platforms:</strong></td><td>VSCode, Jupyter, Replit, GitHub, Google Colab, Kali Linux</td></tr>
       <tr><td><strong>Web Technologies:</strong></td><td>HTML, CSS, JavaScript</td></tr>
@@ -269,87 +257,68 @@
   <!-- ===== MAIN GITHUB REPOS (your detailed version) ===== -->
   <section id="github">
     <h2>Main GitHub Repositories</h2>
-    <p>Explore my open-source work and hands-on coding projects across data science, AI, and software development. Each repository highlights a unique area of growth and experimentation.</p>
+    <p>Explore my open-source work across data science, AI, and software engineering.</p>
 
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank">🌐 MIT Beaver Works – Project Website</a></h3>
-      <p>My official Beaver Works Summer Institute project site featuring the Applied Engineering & AI track. Built using HTML, CSS, and JavaScript with detailed documentation and linked interactive demos.</p>
+      <h3><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" class="project-link">🌐 MIT Beaver Works – Project Website</a></h3>
+      <p>Official Beaver Works project website built with HTML, CSS, and JS. Features detailed documentation and interactive demos.</p>
     </div>
-
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank">🧠 Machine Learning Repository</a></h3>
-      <p>Includes my AI/ML notebooks and experiments using Python, scikit-learn, and PyTorch. Covers everything from data preprocessing and model evaluation to visualization and interpretation.</p>
+      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">🧠 Machine Learning Repository</a></h3>
+      <p>AI/ML experiments in Python using scikit-learn and PyTorch, emphasizing explainability and reproducibility.</p>
     </div>
-
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank">☕ Java Coding Repository</a></h3>
-      <p>Collection of Java programs, algorithms, and USACO prep problems. Demonstrates object-oriented programming concepts, data structures, and competitive coding practice.</p>
+      <h3><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" class="project-link">☕ Java Coding Repository</a></h3>
+      <p>Algorithms, data structures, and USACO prep tasks demonstrating OOP design and algorithmic fluency.</p>
     </div>
-
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank">🐍 Python Coding Repository</a></h3>
-      <p>My foundational repository for Python coding exercises and small projects — includes scripts, games, and learning notebooks showcasing growing technical fluency.</p>
+      <h3><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" class="project-link">🐍 Python Coding Repository</a></h3>
+      <p>Core Python exercises and projects showcasing coding fundamentals, logic, and creative problem solving.</p>
     </div>
   </section>
 
-  <!-- ===== GITHUB PROFILE & STATS (with your theme-aware hue rotate) ===== -->
+  <!-- ===== GITHUB PROFILE & STATS
   <section id="githubstat">
     <h2>GitHub Profile & Stats</h2>
-
     <style>
-      :root {
-        --badge-color-dark: ff4d4d;  /* red for dark mode */
-        --badge-color-light: 2b4eff; /* bright blue for light mode */
-      }
-      /* keep your image filter logic */
-      [data-theme="dark"]  img.github-badge{ filter:hue-rotate(0deg); }
-      [data-theme="light"] img.github-badge{ filter:hue-rotate(180deg); }
+      :root { --badge-color-dark: ff4d4d; --badge-color-light: 2b4eff; }
+      [data-theme="dark"]  img.github-badge { filter: hue-rotate(0deg); }
+      [data-theme="light"] img.github-badge { filter: hue-rotate(180deg); }
     </style>
 
     <div style="text-align:center;">
-      <!-- 🧠 Machine Learning -->
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
-      <br><br>
-
-      <!-- 🐍 Python Coding -->
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
-      <br><br>
-
-      <!-- ☕ Java Coding -->
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
-      <br><br>
-
-      <!-- 🚀 MIT BWSI Project Website -->
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Last Commit">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Commit Activity">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social" alt="BWSI Project Website Stars">
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social"><br><br>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social"><br><br>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social"><br><br>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social">
     </div>
 
     <div style="text-align:center; margin-top:1rem;">
-      <img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" alt="GitHub Stats" style="max-width:90%;border-radius:8px;">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" alt="Top Languages" style="max-width:90%;border-radius:8px;margin-top:1rem;">
+      <img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" style="max-width:90%;border-radius:8px;">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" style="max-width:90%;border-radius:8px;margin-top:1rem;">
     </div>
 
     <div style="text-align:center;margin-top:1rem;">
-      <img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d" alt="Profile Views">
+      <img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d">
     </div>
   </section>
-
-  <!-- ===== CERTIFICATES & BADGES ===== -->
+<!-- ===== CERTIFICATES & BADGES ===== -->
   <section id="certificates">
     <h2 class="section-heading">Certificates & Badges</h2>
     <div class="badge-grid">
       <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
       <div class="badge-card"><img src="img/umich.png" alt="U-Mich"><p>University of Michigan — Joy of Coding</p></div>
       <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
-      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
-    </div>
+      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Student<//p></div>
+</div>
   </section>
 
   <!-- ===== AFFILIATIONS ===== -->
@@ -402,3 +371,25 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+  
+  
+   
+ 
+      
+
+    
+  
+  <section id="certificates">
+    <h2 class="section-heading">Certificates & Badges</h2>
+    <div class="badge-grid">
+      <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
+      <div class="badge-card"><img src="img/umich.png" alt="U-Mich"><p>University of Michigan — Joy of Coding</p></div>
+      <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
+      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
+    
