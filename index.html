@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saanvi · Applied AI & Computing Portfolio</title>
 
-  <!-- Instant theme load -->
+  <!-- Restore saved theme instantly -->
   <script>
     (function () {
       try {
-        const saved = localStorage.getItem('theme');
-        if (saved === 'light' || saved === 'dark') {
-          document.documentElement.setAttribute('data-theme', saved);
+        const saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.setAttribute("data-theme", saved);
         }
       } catch (e) {}
     })();
@@ -26,7 +26,7 @@
       --panel: #f2f2f2;
       --muted: #555;
       --card: #ffffff;
-      --shadow: 0 2px 5px rgba(0,0,0,0.1);
+      --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     [data-theme="dark"] {
@@ -36,20 +36,20 @@
       --panel: #1f1f25;
       --muted: #aaa;
       --card: #1f1f25;
-      --shadow: 0 2px 8px rgba(255,77,77,0.15);
+      --shadow: 0 2px 8px rgba(255, 77, 77, 0.15);
     }
 
     /* ========== GLOBAL ========== */
     * { box-sizing: border-box; }
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: "Inter", system-ui, sans-serif;
       margin: 0;
       background: var(--bg);
       color: var(--text);
       transition: background 0.3s, color 0.3s;
     }
 
-    h1, h2, h3 { margin: 0 0 .5rem; transition: color 0.3s ease; }
+    h1, h2, h3 { margin: 0 0 .5rem; transition: color .3s ease; }
     p { line-height: 1.65; margin: .5rem 0 0; }
 
     header {
@@ -102,21 +102,21 @@
     }
     .card:hover { transform: translateY(-3px); }
 
-    /* Skills Table */
     .skills-table { width: 100%; border-collapse: collapse; }
     .skills-table td { padding: 6px 10px; vertical-align: top; }
     .skills-table tr td:first-child { white-space: nowrap; }
 
-    /* Badge Grids */
     .badge-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px; text-align: center; margin-top: 1rem;
     }
     .badge-card {
+      position: relative;
       border: 1px solid #ccc; border-radius: 10px; padding: .9rem;
       transition: background .3s, transform .2s, border-color .3s;
       background: var(--card);
+      overflow: visible;
     }
     .badge-card img { max-width: 70px; margin-bottom: .5rem; }
     .badge-card:hover { transform: translateY(-3px); }
@@ -141,7 +141,23 @@
     [data-theme="dark"] .project-link { color: #f7df1e; }
     [data-theme="dark"] .project-link:hover { color: #ffe55e; }
 
-    /* Responsive Nav */
+    /* === Hover PDF Preview === */
+    .pdf-preview {
+      display: none;
+      position: absolute;
+      z-index: 20;
+      background: var(--panel);
+      border: 2px solid var(--accent);
+      box-shadow: 0 6px 20px rgba(0,0,0,.3);
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      height: 200px;
+    }
+    .pdf-preview iframe {
+      width: 100%; height: 100%; border: none;
+    }
+
     @media (max-width: 700px) {
       nav a { display: block; margin: .5rem 0; }
       .toggle { position: static; margin-top: .75rem; }
@@ -172,13 +188,11 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2>About Me</h2>
     <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and using technology creatively to help my community. I'm also a figure skater, percussionist, and fiction writer who believes in bringing creative solutions to my software projects.</p>
   </section>
 
-  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
     <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
@@ -187,7 +201,6 @@
     <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025 — Algebra I–II, Geometry, and Pre-Calculus (A grades).</p>
   </section>
 
-  <!-- ===== ENRICHMENT ===== -->
   <section id="achievements">
     <h2>Enrichment Programs</h2>
     <ul>
@@ -199,7 +212,6 @@
     </ul>
   </section>
 
-  <!-- ===== HONORS ===== -->
   <section id="honors">
     <h2>Honors & Awards</h2>
     <ul>
@@ -210,7 +222,6 @@
     </ul>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
@@ -235,7 +246,6 @@
     </div>
   </section>
 
-  <!-- ===== SKILLS ===== -->
   <section id="skills">
     <h2>Technical Skills</h2>
     <table class="skills-table">
@@ -248,7 +258,6 @@
     </table>
   </section>
 
-  <!-- ===== GITHUB ===== -->
   <section id="github">
     <h2>GitHub</h2>
     <p>Explore my open-source work across data science, AI, and software engineering.</p>
@@ -271,49 +280,32 @@
     </div>
   </section>
 
-  <!-- ===== GITHUB STATS ===== -->
-  <section id="githubstat">
-    <h2>GitHub Profile & Stats</h2>
-    <style>
-      :root { --badge-color-dark: ff4d4d; --badge-color-light: 2b4eff; }
-      [data-theme="dark"]  img.github-badge { filter: hue-rotate(0deg); }
-      [data-theme="light"] img.github-badge { filter: hue-rotate(180deg); }
-    </style>
-
-    <div style="text-align:center;">
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social"><br><br>
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social"><br><br>
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social"><br><br>
-      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github">
-      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social">
-    </div>
-
-    <div style="text-align:center; margin-top:1rem;">
-      <img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" style="max-width:90%;border-radius:8px;">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" style="max-width:90%;border-radius:8px;margin-top:1rem;">
-    </div>
-
-    <div style="text-align:center;margin-top:1rem;">
-      <img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d">
-    </div>
-  </section>
-
-<!-- ===== CERTIFICATES & BADGES ===== -->
+  <!-- ===== CERTIFICATES & BADGES with Hover Preview ===== -->
   <section id="certificates">
     <h2 class="section-heading">Certificates & Badges</h2>
+
     <div class="badge-grid">
-      <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
-      <div class="badge-card"><img src="img/umich.png" alt="U-Mich"><p>University of Michigan — Joy of Coding</p></div>
-      <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
-      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Student<//p></div>
-</div>
+      <div class="badge-card hover-preview" data-pdf="pdf/edx.pdf">
+        <img src="img/edx.png" alt="edX">
+        <p>edX — Harvard CS50p</p>
+      </div>
+      <div class="badge-card hover-preview" data-pdf="pdf/umich.pdf">
+        <img src="img/umich.png" alt="U-Mich">
+        <p>University of Michigan — Joy of Coding</p>
+      </div>
+      <div class="badge-card hover-preview" data-pdf="pdf/alphastar.pdf">
+        <img src="img/alphastar.png" alt="AlphaStar">
+        <p>AlphaStar Intermediate Java</p>
+      </div>
+      <div class="badge-card hover-preview" data-pdf="pdf/kwk.pdf">
+        <img src="img/kwk.png" alt="Kode With Klossy">
+        <p>Kode With Klossy — Data Science</p>
+      </div>
+      <div class="badge-card hover-preview" data-pdf="pdf/wolfram.pdf">
+        <img src="img/wolfram.png" alt="Wolfram">
+        <p>Wolfram Summer Program</p>
+      </div>
+    </div>
   </section>
 
   <!-- ===== AFFILIATIONS ===== -->
@@ -324,68 +316,40 @@
       <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI</p></div>
       <div class="badge-card"><img src="img/fermilab.png" alt="Fermilab"><p>Fermilab</p></div>
       <div class="badge-card"><img src="img/umn.png" alt="UMN"><p>University of Minnesota</p></div>
-      <div class="badge-card"><img src="img/kwk.png" alt="Kode With Klossy"><p>Kode With Klossy</p></div>
-      <div class="badge-card"><img src="img/wolfram.png" alt="Wolfram"><p>Wolfram</p></div>
       <div class="badge-card"><img src="img/mehtaplus.png" alt="Mehta+"><p>Mehta+</p></div>
       <div class="badge-card"><img src="img/hennepin.png" alt="Hennepin"><p>Hennepin Technical College</p></div>
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2>Contact</h2>
     <p>📧 Email: <a href="mailto:saanvi.research@gmail.com">saanvi.research@gmail.com</a></p>
     <p>💻 GitHub: <a href="https://github.com/SalmaLilad" target="_blank">github.com/SalmaLilad</a></p>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-  <!-- ===== THEME TOGGLE SCRIPT ===== -->
+  <!-- ===== HOVER PDF PREVIEW SCRIPT ===== -->
   <script>
-    const root = document.documentElement;
-    const btn  = document.getElementById('themeToggle');
+    document.querySelectorAll(".hover-preview").forEach(card => {
+      const pdfUrl = card.dataset.pdf;
+      const preview = document.createElement("div");
+      preview.classList.add("pdf-preview");
+      preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
+      card.appendChild(preview);
 
-    function setBtnLabel(){
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
-    }
-
-    // Initialize label based on current attribute (set in <head> script or default)
-    setBtnLabel();
-
-    btn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'light';
-      const next = current === 'light' ? 'dark' : 'light';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch(e){}
-      setBtnLabel();
+      card.addEventListener("mouseenter", () => preview.style.display = "block");
+      card.addEventListener("mousemove", e => {
+        preview.style.left = e.offsetX + 20 + "px";
+        preview.style.top = e.offsetY + "px";
+      });
+      card.addEventListener('mouseleave', () => {
+      preview.style.display = 'none';
     });
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-  
-  
-   
- 
+  });
+</script>
+     
       
-
-    
   
-  <section id="certificates">
-    <h2 class="section-heading">Certificates & Badges</h2>
-    <div class="badge-grid">
-      <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
-      <div class="badge-card"><img src="img/umich.png" alt="U-Mich"><p>University of Michigan — Joy of Coding</p></div>
-      <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
-      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
-    
-
