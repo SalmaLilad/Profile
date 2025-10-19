@@ -238,55 +238,59 @@
 </ul>
   </section>
 
+
 <section id="github">
-<h2>GitHub Profile & Stats</h2>
-<div style="text-align:center;">
-<img src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
-<img src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
-<img src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
-<br><br>
-<img src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
-<img src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
-<img src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
-<br><br>
-<img src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
-<img src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
-<img src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
-</div>
+  <h2>GitHub Profile & Stats</h2>
 
+  <style>
+    :root {
+      --badge-color-dark: ff4d4d; /* red for dark mode */
+      --badge-color-light: 2b4eff; /* bright blue for light mode */
+    }
 
-<div style="text-align:center; margin-top:1rem;">
-<img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" alt="GitHub Stats" style="max-width:90%;border-radius:8px;">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" alt="Top Languages" style="max-width:90%;border-radius:8px;margin-top:1rem;">
-</div>
+    [data-theme="dark"] img.github-badge {
+      filter: hue-rotate(0deg);
+    }
+    [data-theme="light"] img.github-badge {
+      filter: hue-rotate(180deg);
+    }
+  </style>
 
+  <div style="text-align:center;">
+    <!-- 🧠 Machine Learning -->
+    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
+    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
+    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
+    <br><br>
 
-<div style="text-align:center;margin-top:1rem;">
-<img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d" alt="Profile Views">
-</div>
+    <!-- 🐍 Python Coding -->
+    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
+    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
+    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
+    <br><br>
+
+    <!-- ☕ Java Coding -->
+    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
+    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
+    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
+    <br><br>
+
+    <!-- 🚀 MIT BWSI Project Website -->
+    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Last Commit">
+    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Commit Activity">
+    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social" alt="BWSI Project Website Stars">
+  </div>
+
+  <div style="text-align:center; margin-top:1rem;">
+    <img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" alt="GitHub Stats" style="max-width:90%;border-radius:8px;">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" alt="Top Languages" style="max-width:90%;border-radius:8px;margin-top:1rem;">
+  </div>
+
+  <div style="text-align:center;margin-top:1rem;">
+    <img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d" alt="Profile Views">
+  </div>
 </section>
-
-<script>
-  const themeToggle = document.getElementById('themeToggle');
-  const updateGitHubTheme = () => {
-    const root = document.documentElement;
-    const theme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'default';
-    document.querySelectorAll('#stats-card, #langs-card, #repo1, #repo2, #repo3, #repo4, #streak-card')
-      .forEach(img => {
-        img.src = img.src.replace(/theme=\w+/, `theme=${theme}`);
-      });
-  };
-
-  // Apply correct theme on load
-  updateGitHubTheme();
-
-  // Update when user toggles theme
-  themeToggle.addEventListener('click', () => {
-    setTimeout(updateGitHubTheme, 300);
-  });
-</script>
-
-
+      
   <section id="contact">
     <h2>Contact</h2>
     <p>📧 Email: <a href="saanvi.research@gmail.com">saanvi.research@gmail.com</a></p>
@@ -306,6 +310,7 @@
   </script>
 </body>
 </html>
+
 
 
 
