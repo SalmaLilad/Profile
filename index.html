@@ -23,7 +23,7 @@
       --muted: #aaa;
     }
 
-    /* ===== BASE STYLES ===== */
+    /* ===== GLOBAL ===== */
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
@@ -31,6 +31,8 @@
       color: var(--text);
       transition: background 0.3s ease, color 0.3s ease;
     }
+
+    h1, h2, h3 { transition: color 0.3s ease; }
 
     header {
       background: linear-gradient(90deg, var(--accent), #7f2aff);
@@ -90,6 +92,8 @@
       color: var(--accent);
     }
 
+    ul { line-height: 1.6; }
+
     .project, .badge {
       background: white;
       border-radius: 8px;
@@ -113,6 +117,13 @@
       padding: 1rem;
     }
 
+    .skills-table td { padding: 4px 8px; vertical-align: top; }
+
+    @media (max-width: 700px) {
+      nav a { display: block; margin: 0.5rem 0; }
+    }
+
+    /* Badge & Certificate grids */
     .badge-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -136,13 +147,11 @@
     .badge-card:hover { transform: translateY(-3px); }
   </style>
 
-  <!-- ========== INITIAL THEME LOAD (FAST) ========== -->
+  <!-- DARK MODE DEFAULT INITIALIZER -->
   <script>
-    // Apply dark mode BEFORE render if no preference saved
     (() => {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark' || !savedTheme) {
-        document.documentElement.classList.add('dark-init');
         document.write('<style>body{background:#12131a;color:#e6e8f2}</style>');
       }
     })();
@@ -159,41 +168,133 @@
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
+    <a href="#achievements">Enrichment</a>
+    <a href="#honors">Honors</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#certificates">Certificates</a>
     <a href="#affiliations">Affiliations</a>
+    <a href="#github">GitHub</a>
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Saanvi, a student exploring computer science, AI, and creative tech innovation.</p>
+    <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and creative technology. I’m also a figure skater, percussionist, and fiction writer who brings creative problem-solving into software and AI projects.</p>
   </section>
 
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
+    <em>Premier public high school known for academic excellence and STEM rigor.</em></p>
+    <p>Coursework includes AP Calculus AB/BC, C++ Programming, Applied Robotics, AP Human Geography, Honors English, and Spanish 4. Member of the 9th Grade Honor Band as a Percussionist.</p>
+    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023–May 2025<br>
+    Completed Algebra I & II, Geometry, and Pre-Calculus with A grades.</p>
+  </section>
+
+  <!-- ENRICHMENT -->
+  <section id="achievements">
+    <h2>Enrichment Programs</h2>
+    <ul>
+      <li>MIT BWSI Applied Engineering, AI & Future Technologies Program</li>
+      <li>University of Minnesota AI/ML & Python Camps</li>
+      <li>Kode With Klossy Data Science Camp</li>
+      <li>CyberArts.io Cybersecurity CTF Winner</li>
+      <li>Wolfram Alpha Summer Middle School Program</li>
+    </ul>
+  </section>
+
+  <!-- HONORS -->
+  <section id="honors">
+    <h2>Honors & Awards</h2>
+    <ul>
+      <li>2× National Spanish Exam Gold Medalist</li>
+      <li>US Figure Skating Pre-Gold Level Passed</li>
+      <li>Member — Minnesota Junior Winds Honor Band</li>
+      <li>Percussionist — MacPhail Rimshots Ensemble</li>
+      <li>Gold Award for Honors Reading</li>
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="project">
       <h3>CampQuest AI</h3>
-      <p>AI-powered web-scraper that helps students discover STEM camps based on interests and cost.</p>
+      <p>Web-scraping and AI-based recommendation system to match students with STEM camps by interest, cost, and location. Built with Python, Pandas, BeautifulSoup, and Llama3 LLM.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank">🚓 Police Search Bias Prediction</a></h3>
+      <p>Machine learning model analyzing bias in police searches using fairness metrics, data visualization, and predictive classification.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank">🦠 COVID-19 Chest X-Ray Classification</a></h3>
+      <p>Deep learning project using PyTorch to classify chest X-rays as COVID/non-COVID with Grad-CAM explainability.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank">🧠 Machine Learning Repository</a></h3>
+      <p>Collection of Python ML notebooks covering regression, clustering, neural networks, and data preprocessing pipelines.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/SalmaLilad/Pizza-Ordering-Project" target="_blank">🍕 Pizza Ordering App</a></h3>
+      <p>Interactive Python console and Tkinter GUI system for pizza orders with topping selection and pricing engine.</p>
     </div>
   </section>
 
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <table class="skills-table">
+      <tr><td><strong>Languages:</strong></td><td>Python, Java, Wolfram, Bash</td></tr>
+      <tr><td><strong>Frameworks:</strong></td><td>Numpy, Pandas, Matplotlib, Scikit-learn, BeautifulSoup, Flask</td></tr>
+      <tr><td><strong>Databases:</strong></td><td>MySQL</td></tr>
+      <tr><td><strong>Tools:</strong></td><td>VSCode, Jupyter, GitHub, Tableau, LaTeX</td></tr>
+      <tr><td><strong>Web:</strong></td><td>HTML, CSS, JavaScript</td></tr>
+    </table>
+  </section>
+
+  <!-- CERTIFICATES -->
   <section id="certificates">
-    <h2>Certificates</h2>
+    <h2>Certificates & Badges</h2>
     <div class="badge-grid">
       <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
       <div class="badge-card"><img src="img/umich.png" alt="UMich"><p>University of Michigan — Joy of Coding</p></div>
+      <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
+      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
     </div>
   </section>
 
+  <!-- AFFILIATIONS -->
   <section id="affiliations">
     <h2>Affiliations</h2>
     <div class="badge-grid">
-      <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT Beaver Works</p></div>
       <div class="badge-card"><img src="img/aops.png" alt="AoPS"><p>AoPS</p></div>
+      <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI</p></div>
+      <div class="badge-card"><img src="img/fermilab.png" alt="Fermilab"><p>Fermilab</p></div>
+      <div class="badge-card"><img src="img/umn.png" alt="UMN"><p>University of Minnesota</p></div>
+      <div class="badge-card"><img src="img/kwk.png" alt="KWK"><p>Kode With Klossy</p></div>
+      <div class="badge-card"><img src="img/wolfram.png" alt="Wolfram"><p>Wolfram</p></div>
+      <div class="badge-card"><img src="img/mehtaplus.png" alt="Mehta+"><p>Mehta+</p></div>
+      <div class="badge-card"><img src="img/hennepin.png" alt="Hennepin"><p>Hennepin Technical College</p></div>
     </div>
   </section>
 
+  <!-- GITHUB -->
+  <section id="github">
+    <h2>GitHub Highlights</h2>
+    <div class="project"><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank">🌐 MIT Beaver Works — Project Website</a></div>
+    <div class="project"><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank">🧠 Machine Learning Repository</a></div>
+    <div class="project"><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank">☕ Java Coding Repository</a></div>
+    <div class="project"><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank">🐍 Python Coding Repository</a></div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
     <p>📧 Email: <a href="mailto:saanvi.research@gmail.com">saanvi.research@gmail.com</a></p>
@@ -204,13 +305,12 @@
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-  <!-- ========== THEME TOGGLE SCRIPT ========== -->
+  <!-- THEME SCRIPT -->
   <script>
     const body = document.body;
     const btn = document.querySelector('.toggle');
-
-    // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme');
+
     if (savedTheme === 'dark' || !savedTheme) {
       body.classList.add('dark-mode');
       btn.textContent = '☀️ Light';
