@@ -317,63 +317,88 @@
   </div>
 </section>
 
-</div>
-  </section>
-  <!-- CERTIFICATES & BADGES -->
+<!-- CERTIFICATES & BADGES -->
 <section id="certificates">
-  <h2>Certificates & Badges</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center;margin-top:1rem;">
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/edx.png" alt="edX CS50p Logo" loading="lazy" style="max-width:80px;">
-      <p>edX — Harvard CS50p</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/umich.png" alt="University of Michigan Joy of Coding Logo" loading="lazy" style="max-width:80px;">
-      <p>University of Michigan — Joy of Coding</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/alphastar.png" alt="AlphaStar Logo" loading="lazy" style="max-width:80px;">
-      <p>AlphaStar Intermediate Java</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/collegeboard.png" alt="College Board AP" loading="lazy" style="max-width:80px;">
-      <p>College Board — AP Scholar</p>
-    </div>
+  <h2 class="section-heading">Certificates & Badges</h2>
+
+  <style>
+    /* Section Heading Colors */
+    .section-heading {
+      border-bottom: 2px solid var(--brand, #2b4eff);
+      padding-bottom: 0.4rem;
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    [data-theme="light"] .section-heading {
+      color: #2b4eff;
+      border-color: #2b4eff;
+    }
+
+    [data-theme="dark"] .section-heading {
+      color: #ff4d4d;
+      border-color: #ff4d4d;
+    }
+
+    /* Badge Grid */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .badge-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 0.8rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .badge-card img {
+      max-width: 70px;
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-card:hover {
+      transform: translateY(-3px);
+    }
+
+    [data-theme="light"] .badge-card {
+      background: #ffffff;
+      border-color: #ddd;
+    }
+
+    [data-theme="dark"] .badge-card {
+      background: #2b2b2b;
+      border-color: #444;
+    }
+  </style>
+
+  <div class="badge-grid">
+    <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
+    <div class="badge-card"><img src="img/umich.png" alt="U-Mich"><p>University of Michigan — Joy of Coding</p></div>
+    <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
+    <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
   </div>
 </section>
 
 <!-- AFFILIATIONS -->
 <section id="affiliations" style="margin-top:2rem;">
-  <h2>Affiliations</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center;margin-top:1rem;">
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/aops.png" alt="AoPS" loading="lazy" style="max-width:80px;">
-      <p>AoPS</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/bwsi.png" alt="MIT BWSI" loading="lazy" style="max-width:80px;">
-      <p>MIT BWSI</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/fermilab.png" alt="Fermilab" loading="lazy" style="max-width:80px;">
-      <p>Fermilab</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/umn.png" alt="University of Minnesota" loading="lazy" style="max-width:80px;">
-      <p>University of Minnesota</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/kwk.png" alt="Kode With Klossy" loading="lazy" style="max-width:80px;">
-      <p>Kode With Klossy</p>
-    </div>
-    <div style="background:white;border:1px solid #ddd;border-radius:8px;padding:1rem;">
-      <img src="img/wolfram.png" alt="Wolfram" loading="lazy" style="max-width:80px;">
-      <p>Wolfram</p>
-    </div>
+  <h2 class="section-heading">Affiliations</h2>
+  <div class="badge-grid">
+    <div class="badge-card"><img src="img/aops.png" alt="AoPS"><p>AoPS</p></div>
+    <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI</p></div>
+    <div class="badge-card"><img src="img/fermilab.png" alt="Fermilab"><p>Fermilab</p></div>
+    <div class="badge-card"><img src="img/umn.png" alt="UMN"><p>University of Minnesota</p></div>
+    <div class="badge-card"><img src="img/kwk.png" alt="Kode With Klossy"><p>Kode With Klossy</p></div>
+    <div class="badge-card"><img src="img/wolfram.png" alt="Wolfram"><p>Wolfram</p></div>
+    <div class="badge-card"><img src="img/mehtaplus.png" alt="Mehta+"><p>Mehta+</p></div>
+    <div class="badge-card"><img src="img/hennepin.png" alt="Hennepin"><p>Hennepin Technical College</p></div>
   </div>
 </section>
-
-  <section id="contact">
+     
+    <section id="contact">
     <h2>Contact</h2>
     <p>📧 Email: <a href="saanvi.research@gmail.com">saanvi.research@gmail.com</a></p>
     <p>💻 GitHub: <a href="https://github.com/SalmaLilad" target="_blank">github.com/SalmaLilad</a></p>
@@ -392,6 +417,7 @@
   </script>
 </body>
 </html>
+
 
 
 
