@@ -1,329 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saanvi · Applied AI & Computing Portfolio</title>
 
+  <!-- Set saved theme ASAP (prevents flash) -->
+  <script>
+    (function () {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
-    /* ===== THEME VARIABLES ===== */
-    :root {
+    /* ========== THEME VARIABLES (LIGHT DEFAULT) ========== */
+    :root{
       --bg: #fafafa;
       --text: #12131a;
       --accent: #1f4aff;
       --panel: #f2f2f2;
       --muted: #555;
+      --card: #ffffff;
+      --shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    body.dark-mode {
+    /* DARK THEME OVERRIDES */
+    [data-theme="dark"]{
       --bg: #12131a;
       --text: #e6e8f2;
       --accent: #ff4d4d;
       --panel: #1f1f25;
       --muted: #aaa;
+      --card: #1f1f25;
+      --shadow: 0 2px 8px rgba(255,77,77,0.15);
     }
 
-    /* ===== GLOBAL ===== */
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background-color: var(--bg);
+    /* ========== GLOBAL ========== */
+    *{box-sizing:border-box}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      background: var(--bg);
       color: var(--text);
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background .3s ease, color .3s ease;
     }
+    h1,h2,h3{margin:0 0 .5rem; transition: color .3s ease;}
+    p{line-height:1.65; margin:.5rem 0 0}
 
-    h1, h2, h3 { transition: color 0.3s ease; }
-
-    header {
+    header{
       background: linear-gradient(90deg, var(--accent), #7f2aff);
-      color: white;
-      text-align: center;
-      padding: 1.7rem 1rem;
-      position: relative;
+      color:#fff;
+      text-align:center;
+      padding:1.7rem 1rem;
+      position:relative;
     }
 
-    nav {
-      background-color: var(--panel);
-      text-align: center;
-      padding: 1rem;
+    .toggle{
+      position:absolute; right:1rem; top:1.2rem;
+      background:none; border:2px solid #fff; color:#fff;
+      padding:.35rem .7rem; border-radius:8px; cursor:pointer;
+      font-weight:700; transition: color .3s, border-color .3s, background .3s;
     }
+    [data-theme="dark"] .toggle{ color:#ff4d4d; border-color:#ff4d4d; }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: var(--accent); }
-
-    .toggle {
-      position: absolute;
-      right: 1rem;
-      top: 1.2rem;
-      background: none;
-      border: 2px solid white;
-      color: white;
-      padding: 0.3rem 0.6rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: color 0.3s, border-color 0.3s;
-    }
-
-    body.dark-mode .toggle {
-      border-color: #ff4d4d;
-      color: #ff4d4d;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: var(--panel);
-      border-radius: 10px;
-      transition: background 0.3s;
-    }
-
-    h2 {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 0.3rem;
-      color: var(--accent);
-    }
-
-    ul { line-height: 1.6; }
-
-    .project, .badge {
-      background: white;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.2s, background 0.3s;
-    }
-
-    body.dark-mode .project, body.dark-mode .badge {
+    nav{
       background: var(--panel);
-      box-shadow: 0 2px 8px rgba(255,77,77,0.15);
+      text-align:center;
+      padding:1rem;
+    }
+    nav a{
+      color: var(--text);
+      text-decoration:none;
+      margin:0 1rem; font-weight:600; transition: color .25s;
+    }
+    nav a:hover{ color: var(--accent); }
+
+    section{
+      max-width:1000px; margin:2rem auto; padding:1rem;
+      background: var(--panel); border-radius:12px; transition: background .3s;
+    }
+    section + section{ margin-top:.75rem; }
+
+    h2{
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom:.35rem;
     }
 
-    .project:hover, .badge:hover { transform: translateY(-3px); }
+    .card{
+      background: var(--card);
+      border-radius:10px; padding:1rem; margin-bottom:1rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s, background .3s, box-shadow .3s;
+    }
+    .card:hover{ transform: translateY(-3px); }
 
-    footer {
-      text-align: center;
+    /* Skills table */
+    .skills-table{ width:100%; border-collapse:collapse; }
+    .skills-table td{ padding:6px 10px; vertical-align:top; }
+    .skills-table tr td:first-child{ white-space:nowrap; }
+
+    /* Grids for badges/affiliations */
+    .badge-grid{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap:16px; text-align:center; margin-top:1rem;
+    }
+    .badge-card{
+      border:1px solid #ccc; border-radius:10px; padding:.9rem;
+      transition: background .3s, transform .2s, border-color .3s;
+      background: var(--card);
+    }
+    .badge-card img{ max-width:70px; margin-bottom:.5rem; }
+    .badge-card:hover{ transform: translateY(-3px); }
+    [data-theme="dark"] .badge-card{ border-color:#444; }
+
+    footer{
+      text-align:center;
       background: linear-gradient(90deg, var(--accent), #7f2aff);
-      color: white;
-      padding: 1rem;
+      color:#fff; padding:1rem;
+      border-top-left-radius:12px; border-top-right-radius:12px;
+      max-width:1000px; margin:2rem auto 2.5rem;
     }
 
-    .skills-table td { padding: 4px 8px; vertical-align: top; }
-
-    @media (max-width: 700px) {
-      nav a { display: block; margin: 0.5rem 0; }
+    /* Section heading color sync for your previous selectors */
+    .section-heading{
+      border-bottom:2px solid var(--accent);
+      padding-bottom:.35rem;
     }
+    [data-theme="light"] .section-heading{ color:#2b4eff; border-color:#2b4eff; }
+    [data-theme="dark"]  .section-heading{ color:#ff4d4d; border-color:#ff4d4d; }
 
-    /* Badge & Certificate grids */
-    .badge-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      text-align: center;
-      margin-top: 1rem;
+    /* Responsive nav */
+    @media (max-width:700px){
+      nav a{ display:block; margin:.5rem 0; }
+      .toggle{ position:static; margin-top:.75rem; }
+      header{ padding-bottom:2.2rem; }
     }
-
-    .badge-card {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 0.8rem;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .badge-card img {
-      max-width: 70px;
-      margin-bottom: 0.4rem;
-    }
-
-    .badge-card:hover { transform: translateY(-3px); }
   </style>
-
-  <!-- DARK MODE DEFAULT INITIALIZER -->
-  <script>
-    (() => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || !savedTheme) {
-        document.write('<style>body{background:#12131a;color:#e6e8f2}</style>');
-      }
-    })();
-  </script>
 </head>
 
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <h1>Saanvi</h1>
     <p>Aspiring Applied AI & Machine Learning Student's Portfolio</p>
-    <button class="toggle" onclick="toggleTheme()">🌙 Dark</button>
+    <button class="toggle" id="themeToggle" aria-label="Toggle color theme">🌙 Dark</button>
   </header>
 
+  <!-- ===== NAV ===== -->
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
-    <a href="#achievements">Enrichment</a>
-    <a href="#honors">Honors</a>
     <a href="#projects">Projects</a>
+    <a href="#achievements">Enrichment</a>
+    <a href="#honors">Honors & Awards</a>
     <a href="#skills">Skills</a>
+    <a href="#github">Main GitHub Repositories</a>
+    <a href="#githubstat">GitHub Stats</a>
     <a href="#certificates">Certificates</a>
     <a href="#affiliations">Affiliations</a>
-    <a href="#github">GitHub</a>
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ABOUT -->
+  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and creative technology. I’m also a figure skater, percussionist, and fiction writer who brings creative problem-solving into software and AI projects.</p>
+    <p>Hi! I'm Saanvi, a student from Minnesota exploring computer science, machine learning, and using technology creatively to help my community. I'm also a figure skater, percussionist, and fiction writer who believes in bringing creative solutions to my software projects.</p>
   </section>
 
-  <!-- EDUCATION -->
+  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
-    <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
-    <em>Premier public high school known for academic excellence and STEM rigor.</em></p>
-    <p>Coursework includes AP Calculus AB/BC, C++ Programming, Applied Robotics, AP Human Geography, Honors English, and Spanish 4. Member of the 9th Grade Honor Band as a Percussionist.</p>
-    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023–May 2025<br>
-    Completed Algebra I & II, Geometry, and Pre-Calculus with A grades.</p>
+    <p><strong>Wayzata High School</strong>, Plymouth, MN<br>
+    <em>Class of 2029 — Premier public high school recognized for academic excellence and STEM rigor</em></p>
+    <p>Coursework includes AP Calculus AB and BC, Computer Programming in C++ (<em>Concurrent enrollment with Hennepin Technical College</em>), Applied Robotics, AP Human Geography, Spanish 4, Honors English, and Earth Science. Member of the High School 9th Grade Honor Band as a Percussionist.</p>
+    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025<br>
+    Coursework included Algebra I & II, Geometry, and Pre-Calculus, all completed with an A grade.</p>
   </section>
 
-  <!-- ENRICHMENT -->
+  <!-- ===== ENRICHMENT ===== -->
   <section id="achievements">
     <h2>Enrichment Programs</h2>
     <ul>
       <li>MIT BWSI Applied Engineering, AI & Future Technologies Program</li>
-      <li>University of Minnesota AI/ML & Python Camps</li>
+      <li>University of Minnesota Advanced AI/ML & Python Camps</li>
       <li>Kode With Klossy Data Science Camp</li>
       <li>CyberArts.io Cybersecurity CTF Winner</li>
       <li>Wolfram Alpha Summer Middle School Program</li>
     </ul>
   </section>
 
-  <!-- HONORS -->
-  <section id="honors">
-    <h2>Honors & Awards</h2>
-    <ul>
-      <li>2× National Spanish Exam Gold Medalist</li>
-      <li>US Figure Skating Pre-Gold Level Passed</li>
-      <li>Member — Minnesota Junior Winds Honor Band</li>
-      <li>Percussionist — MacPhail Rimshots Ensemble</li>
-      <li>Gold Award for Honors Reading</li>
-    </ul>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>CampQuest AI</h3>
-      <p>Web-scraping and AI-based recommendation system to match students with STEM camps by interest, cost, and location. Built with Python, Pandas, BeautifulSoup, and Llama3 LLM.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank">🚓 Police Search Bias Prediction</a></h3>
-      <p>Machine learning model analyzing bias in police searches using fairness metrics, data visualization, and predictive classification.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank">🦠 COVID-19 Chest X-Ray Classification</a></h3>
-      <p>Deep learning project using PyTorch to classify chest X-rays as COVID/non-COVID with Grad-CAM explainability.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank">🧠 Machine Learning Repository</a></h3>
-      <p>Collection of Python ML notebooks covering regression, clustering, neural networks, and data preprocessing pipelines.</p>
-    </div>
-
-    <div class="project">
-      <h3><a href="https://github.com/SalmaLilad/Pizza-Ordering-Project" target="_blank">🍕 Pizza Ordering App</a></h3>
-      <p>Interactive Python console and Tkinter GUI system for pizza orders with topping selection and pricing engine.</p>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>Technical Skills</h2>
-    <table class="skills-table">
-      <tr><td><strong>Languages:</strong></td><td>Python, Java, Wolfram, Bash</td></tr>
-      <tr><td><strong>Frameworks:</strong></td><td>Numpy, Pandas, Matplotlib, Scikit-learn, BeautifulSoup, Flask</td></tr>
-      <tr><td><strong>Databases:</strong></td><td>MySQL</td></tr>
-      <tr><td><strong>Tools:</strong></td><td>VSCode, Jupyter, GitHub, Tableau, LaTeX</td></tr>
-      <tr><td><strong>Web:</strong></td><td>HTML, CSS, JavaScript</td></tr>
-    </table>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section id="certificates">
-    <h2>Certificates & Badges</h2>
-    <div class="badge-grid">
-      <div class="badge-card"><img src="img/edx.png" alt="edX"><p>edX — Harvard CS50p</p></div>
-      <div class="badge-card"><img src="img/umich.png" alt="UMich"><p>University of Michigan — Joy of Coding</p></div>
-      <div class="badge-card"><img src="img/alphastar.png" alt="AlphaStar"><p>AlphaStar Intermediate Java</p></div>
-      <div class="badge-card"><img src="img/collegeboard.png" alt="CollegeBoard"><p>College Board — AP Scholar</p></div>
-    </div>
-  </section>
-
-  <!-- AFFILIATIONS -->
-  <section id="affiliations">
-    <h2>Affiliations</h2>
-    <div class="badge-grid">
-      <div class="badge-card"><img src="img/aops.png" alt="AoPS"><p>AoPS</p></div>
-      <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI</p></div>
-      <div class="badge-card"><img src="img/fermilab.png" alt="Fermilab"><p>Fermilab</p></div>
-      <div class="badge-card"><img src="img/umn.png" alt="UMN"><p>University of Minnesota</p></div>
-      <div class="badge-card"><img src="img/kwk.png" alt="KWK"><p>Kode With Klossy</p></div>
-      <div class="badge-card"><img src="img/wolfram.png" alt="Wolfram"><p>Wolfram</p></div>
-      <div class="badge-card"><img src="img/mehtaplus.png" alt="Mehta+"><p>Mehta+</p></div>
-      <div class="badge-card"><img src="img/hennepin.png" alt="Hennepin"><p>Hennepin Technical College</p></div>
-    </div>
-  </section>
-
-  <!-- GITHUB -->
-  <section id="github">
-    <h2>GitHub Highlights</h2>
-    <div class="project"><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank">🌐 MIT Beaver Works — Project Website</a></div>
-    <div class="project"><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank">🧠 Machine Learning Repository</a></div>
-    <div class="project"><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank">☕ Java Coding Repository</a></div>
-    <div class="project"><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank">🐍 Python Coding Repository</a></div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:saanvi.research@gmail.com">saanvi.research@gmail.com</a></p>
-    <p>💻 GitHub: <a href="https://github.com/SalmaLilad" target="_blank">github.com/SalmaLilad</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
-  </footer>
-
-  <!-- THEME SCRIPT -->
-  <script>
-    const body = document.body;
-    const btn = document.querySelector('.toggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark' || !savedTheme) {
-      body.classList.add('dark-mode');
-      btn.textContent = '☀️ Light';
-    } else {
-      btn.textContent = '🌙 Dark';
-    }
-
-    function toggleTheme() {
-      body.classList.toggle('dark-mode');
-      const isDark = body.classList.contains('dark-mode');
-      btn.textContent = isDark ? '☀️ Light' : '🌙 Dark';
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-  </script>
-</body>
-</html>
+  <!-- ===== HONO
