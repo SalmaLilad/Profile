@@ -133,24 +133,36 @@
     [data-theme="dark"]  img.github-badge { filter: hue-rotate(0deg); }
     [data-theme="light"] img.github-badge { filter: hue-rotate(180deg); }
 
-    /* === Hover PDF Preview === */
-    .pdf-preview {
-      display: none;
-      position: absolute;
-      z-index: 20;
-      background: var(--panel);
-      border: 2px solid var(--accent);
-      box-shadow: 0 6px 20px rgba(0,0,0,.3);
-      border-radius: 10px;
-      overflow: hidden;
-      width: 300px;
-      height: 200px;
-      opacity: 0;
-      transition: opacity 0.25s ease-in-out;
-    }
-    .pdf-preview.show { opacity: 1; }
+  /* === Hover PDF Preview (fixed positioning) === */
+.badge-card { position: relative; }
 
-    .pdf-preview iframe { width: 100%; height: 100%; border: none; }
+.pdf-preview {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  border: 2px solid var(--accent);
+  box-shadow: 0 6px 20px rgba(0,0,0,.3);
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+}
+.pdf-preview.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+  pointer-events: auto;
+}
+.pdf-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
     @media (max-width: 700px) {
       nav a { display: block; margin: .5rem 0; }
@@ -375,45 +387,43 @@
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-  <!-- ===== HOVER PDF PREVIEW SCRIPT (fade + Coming Soon) ===== -->
-  <script>
-    document.querySelectorAll(".hover-preview").forEach(card => {
-      const pdfUrl = card.dataset.pdf;
-      const preview = document.createElement("div");
-      preview.classList.add("pdf-preview");
-      preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
-      card.appendChild(preview);
+    <!-- ===== HOVER PDF PREVIEW SCRIPT (fixed positioning + “Coming Soon”) ===== -->
+<script>
+document.querySelectorAll(".hover-preview").forEach(card => {
+  const pdfUrl = card.dataset.pdf;
+  const preview = document.createElement("div");
+  preview.classList.add("pdf-preview");
+  preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
+  card.appendChild(preview);
 
-      // Hover in
-      card.addEventListener("mouseenter", async () => {
-        try {
-          const res = await fetch(pdfUrl, { method: "HEAD" });
-          if (!res.ok) {
-            preview.innerHTML =
-              `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
-          }
-        } catch {
-          preview.innerHTML =
-            `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
-        }
+  // Show preview or fallback on hover
+  card.addEventListener("mouseenter", async () => {
+    try {
+      const res = await fetch(pdfUrl, { method: "HEAD" });
+      if (!res.ok) throw new Error();
+    } catch {
+      preview.innerHTML = `
+        <div style="
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          height:100%;
+          color:var(--text);
+          font-weight:600;
+        ">
+          📄 Coming soon
+        </div>`;
+    }
+    preview.classList.add("show");
+  });
 
-        preview.style.display = "block";
-        requestAnimationFrame(() => preview.classList.add("show"));
-      });
+  // Hide when mouse leaves
+  card.addEventListener("mouseleave", () => {
+    preview.classList.remove("show");
+  });
+});
+</script>
 
-      // Move popup beside cursor
-      card.addEventListener("mousemove", e => {
-        preview.style.left = e.offsetX + 20 + "px";
-        preview.style.top = e.offsetY + "px";
-      });
-
-      // Fade-out when leaving
-      card.addEventListener("mouseleave", () => {
-        preview.classList.remove("show");
-        setTimeout(() => (preview.style.display = "none"), 250);
-      });
-    });
-  </script>
 
   <!-- ===== THEME TOGGLE SCRIPT (final persistent) ===== -->
   <script>
@@ -444,3 +454,4 @@
   </script>
 </body>
 </html>
+
