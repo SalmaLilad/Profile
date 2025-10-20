@@ -163,6 +163,16 @@
       .toggle { position: static; margin-top: .75rem; }
       header { padding-bottom: 2.2rem; }
     }
+ /* ===== Smooth Fade-In for PDF Hover ===== */
+.pdf-preview {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.pdf-preview.show {
+  opacity: 1;
+}
+ 
   </style>
 </head>
 
@@ -429,6 +439,7 @@
 </script>
 
   
+
 
 
 
