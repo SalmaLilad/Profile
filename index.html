@@ -391,28 +391,45 @@
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-  <!-- ===== HOVER PDF PREVIEW SCRIPT ===== -->
-  <script>
-    document.querySelectorAll(".hover-preview").forEach(card => {
-      const pdfUrl = card.dataset.pdf;
-      const preview = document.createElement("div");
-      preview.classList.add("pdf-preview");
-      preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
-      card.appendChild(preview);
+  <!-- ===== HOVER PDF PREVIEW SCRIPT (with Coming Soon fallback) ===== -->
+<script>
+  document.querySelectorAll(".hover-preview").forEach(card => {
+    const pdfUrl = card.dataset.pdf;
+    const preview = document.createElement("div");
+    preview.classList.add("pdf-preview");
+    preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
+    card.appendChild(preview);
 
-      card.addEventListener("mouseenter", () => preview.style.display = "block");
-      card.addEventListener("mousemove", e => {
-        preview.style.left = e.offsetX + 20 + "px";
-        preview.style.top = e.offsetY + "px";
-      });
-      card.addEventListener('mouseleave', () => {
-      preview.style.display = 'none';
+    // When hovering, show preview or fallback
+    card.addEventListener("mouseenter", async () => {
+      try {
+        const res = await fetch(pdfUrl, { method: "HEAD" });
+        if (!res.ok) {
+          // PDF not found
+          preview.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
+        }
+      } catch (err) {
+        preview.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
+      }
+      preview.style.display = "block";
+    });
+
+    // Move popup with mouse
+    card.addEventListener("mousemove", e => {
+      preview.style.left = e.offsetX + 20 + "px";
+      preview.style.top = e.offsetY + "px";
+    });
+
+    // Hide when leaving
+    card.addEventListener("mouseleave", () => {
+      preview.style.display = "none";
     });
   });
 </script>
-     
+
       
   
+
 
 
 
