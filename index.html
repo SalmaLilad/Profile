@@ -391,7 +391,7 @@
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-  <!-- ===== HOVER PDF PREVIEW SCRIPT (with Coming Soon fallback) ===== -->
+ <!-- ===== HOVER PDF PREVIEW SCRIPT (with fade + Coming Soon fallback) ===== -->
 <script>
   document.querySelectorAll(".hover-preview").forEach(card => {
     const pdfUrl = card.dataset.pdf;
@@ -400,35 +400,36 @@
     preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
     card.appendChild(preview);
 
-    // When hovering, show preview or fallback
+    // On hover — load preview or fallback
     card.addEventListener("mouseenter", async () => {
       try {
         const res = await fetch(pdfUrl, { method: "HEAD" });
         if (!res.ok) {
-          // PDF not found
           preview.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
         }
-      } catch (err) {
+      } catch {
         preview.innerHTML = `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
       }
       preview.style.display = "block";
+      requestAnimationFrame(() => preview.classList.add("show")); // fade-in
     });
 
-    // Move popup with mouse
+    // Move the popup
     card.addEventListener("mousemove", e => {
       preview.style.left = e.offsetX + 20 + "px";
       preview.style.top = e.offsetY + "px";
     });
 
-    // Hide when leaving
+    // Hide with fade-out
     card.addEventListener("mouseleave", () => {
-      preview.style.display = "none";
+      preview.classList.remove("show");
+      setTimeout(() => (preview.style.display = "none"), 250);
     });
   });
 </script>
 
-      
   
+
 
 
 
