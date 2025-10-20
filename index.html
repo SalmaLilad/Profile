@@ -129,6 +129,10 @@
     [data-theme="dark"] .project-link { color: #f7df1e; }
     [data-theme="dark"] .project-link:hover { color: #ffe55e; }
 
+    /* === GitHub Stats internal hue tweak === */
+    [data-theme="dark"]  img.github-badge { filter: hue-rotate(0deg); }
+    [data-theme="light"] img.github-badge { filter: hue-rotate(180deg); }
+
     /* === Hover PDF Preview === */
     .pdf-preview {
       display: none;
@@ -172,6 +176,7 @@
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#github">GitHub</a>
+    <a href="#githubstat">GitHub Stats</a>
     <a href="#certificates">Certificates</a>
     <a href="#affiliations">Affiliations</a>
     <a href="#contact">Contact</a>
@@ -188,8 +193,8 @@
     <h2>Education</h2>
     <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
     <em>Premier public high school recognized for academic excellence and STEM rigor.</em></p>
-    <p>Coursework includes AP Calculus AB/BC, C++ Programming, Applied Robotics, AP Human Geography, Honors English, and Spanish 4.</p>
-    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025 — Algebra I–II, Geometry, and Pre-Calculus (A grades).</p>
+    <p>Coursework includes AP Calculus AB/BC, C++ Programming (Concurrent with Hennepin Technical College), Applied Robotics, AP Human Geography, Spanish 4, Honors English, and Earth Science. Member of the 9th Grade Honor Band as a Percussionist.</p>
+    <p><strong>University of Minnesota Talented Youth Mathematics Program (UMTYMP)</strong>, Sep 2023 – May 2025 — Algebra I & II, Geometry, and Pre-Calculus (A grades).</p>
   </section>
 
   <!-- ===== ENRICHMENT ===== -->
@@ -209,9 +214,10 @@
     <h2>Honors & Awards</h2>
     <ul>
       <li>2× National Spanish Exam Gold Medalist</li>
-      <li>US Figure Skating Pre-Gold Level Passed</li>
-      <li>Member — Minnesota Junior Winds Honor Band</li>
-      <li>Percussionist — MacPhail Rimshots Ensemble</li>
+      <li>US Figure Skating Pre-Gold Level Passed; Training for Gold Skills Test</li>
+      <li>Represent High School in the Minnesota Junior Winds Honor Band</li>
+      <li>Percussionist with MacPhail Rimshots Ensemble</li>
+      <li>Gold Award for Honors Reading (Grades 6–8)</li>
     </ul>
   </section>
 
@@ -220,23 +226,27 @@
     <h2>Projects</h2>
     <div class="card">
       <h3>CampQuest AI</h3>
-      <p>AI system recommending STEM camps by interest, cost, and region. Built with Python, Pandas, BeautifulSoup, and Llama3.</p>
+      <p>Web-scraping and AI project that helps students find STEM camps based on interest, location, and cost. Built with Python, Pandas, BeautifulSoup, and Llama3 LLM.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">🚓 Police Search Bias Prediction</a></h3>
-      <p>Machine learning model evaluating potential bias in police searches with fairness metrics and model comparison.</p>
+      <p>Machine learning model analyzing potential bias in police searches. Combines exploratory data analysis, fairness metrics, and model comparison to predict search likelihood.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link">🦠 COVID-19 Chest X-Ray Classification</a></h3>
-      <p>Deep learning classifier using PyTorch to detect COVID from X-rays with Grad-CAM explainability.</p>
+      <p>Deep learning model using PyTorch to classify chest X-rays into COVID and non-COVID categories. Features Grad-CAM explainability and a reproducibility framework.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">🧠 Machine Learning Projects</a></h3>
-      <p>Collection of notebooks covering regression, clustering, neural networks, and evaluation techniques.</p>
+      <p>Collection of ML projects using Python, covering supervised learning, clustering, neural nets, and data visualization.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Pizza-Ordering-Project" target="_blank" class="project-link">🍕 Pizza Ordering App</a></h3>
-      <p>Interactive Tkinter + CLI pizza order system with live pricing and toppings selection.</p>
+      <p>Interactive pizza ordering system in Python (CLI + Tkinter GUI) with dynamic pricing and toppings selection.</p>
     </div>
   </section>
 
@@ -260,19 +270,60 @@
 
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" class="project-link">🌐 MIT Beaver Works – Project Website</a></h3>
-      <p>Official Beaver Works project website built with HTML, CSS, and JS. Features detailed documentation and interactive demos.</p>
+      <p>Official BWSI project site built with HTML, CSS, and JavaScript with detailed documentation and linked interactive demos.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">🧠 Machine Learning Repository</a></h3>
-      <p>AI/ML experiments in Python using scikit-learn and PyTorch, emphasizing explainability and reproducibility.</p>
+      <p>AI/ML notebooks using scikit-learn and PyTorch. Covers data preprocessing, model evaluation, visualization, and interpretation.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" class="project-link">☕ Java Coding Repository</a></h3>
-      <p>Algorithms, data structures, and USACO prep tasks demonstrating OOP design and algorithmic fluency.</p>
+      <p>Collection of Java programs, algorithms, and USACO prep problems demonstrating OOP, data structures, and algorithmic practice.</p>
     </div>
+
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" class="project-link">🐍 Python Coding Repository</a></h3>
-      <p>Core Python exercises and projects showcasing coding fundamentals and creative problem solving.</p>
+      <p>Foundational Python exercises and projects — scripts, games, and learning notebooks showcasing growing technical fluency.</p>
+    </div>
+  </section>
+
+  <!-- ===== GITHUB PROFILE & STATS ===== -->
+  <section id="githubstat">
+    <h2>GitHub Profile & Stats</h2>
+    <div style="text-align:center;">
+      <!-- 🧠 Machine Learning -->
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
+      <br><br>
+
+      <!-- 🐍 Python Coding -->
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
+      <br><br>
+
+      <!-- ☕ Java Coding -->
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
+      <br><br>
+
+      <!-- 🚀 MIT BWSI Project Website -->
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social" alt="BWSI Project Website Stars">
+    </div>
+
+    <div style="text-align:center; margin-top:1rem;">
+      <img src="https://github-readme-stats.vercel.app/api?username=SalmaLilad&show_icons=true&theme=radical" alt="GitHub Stats" style="max-width:90%;border-radius:8px;">
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&theme=radical" alt="Top Languages" style="max-width:90%;border-radius:8px;margin-top:1rem;">
+    </div>
+
+    <div style="text-align:center;margin-top:1rem;">
+      <img src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d" alt="Profile Views">
     </div>
   </section>
 
@@ -306,6 +357,8 @@
       <div class="badge-card"><img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI</p></div>
       <div class="badge-card"><img src="img/fermilab.png" alt="Fermilab"><p>Fermilab</p></div>
       <div class="badge-card"><img src="img/umn.png" alt="UMN"><p>University of Minnesota</p></div>
+      <div class="badge-card"><img src="img/kwk.png" alt="KWK"><p>Kode With Klossy</p></div>
+      <div class="badge-card"><img src="img/wolfram.png" alt="Wolfram"><p>Wolfram</p></div>
       <div class="badge-card"><img src="img/mehtaplus.png" alt="Mehta+"><p>Mehta+</p></div>
       <div class="badge-card"><img src="img/hennepin.png" alt="Hennepin"><p>Hennepin Technical College</p></div>
     </div>
@@ -335,9 +388,6 @@
       card.addEventListener("mouseenter", async () => {
         try {
           const res = await fetch(pdfUrl, { method: "HEAD" });
-          if (!res.ok) {
-            preview.innerHTML =
-              `<div style="display:flex;align
           if (!res.ok) {
             preview.innerHTML =
               `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text);font-weight:600;">📄 Coming soon</div>`;
@@ -394,4 +444,3 @@
   </script>
 </body>
 </html>
-
