@@ -175,17 +175,12 @@
   line-height: 1.4;      /* slightly more readable line spacing */
 }
 
-
   
-
-    /* === Fine-tune spacing in Education section === */
-#education p {
-  margin-bottom: 1.6rem; /* normal gap between major entries (Wayzata ↔ UMN) */
-}
-
+/* === Fine-tuned spacing between "Premier public..." and "Coursework" === */
 #education p:nth-of-type(2) {
-  margin-top: 0.3rem;   /* smaller space after “Premier public...” */
-  margin-bottom: 0.3rem; /* tighter space before “Coursework includes...” */
+  margin-top: 0.2rem;    /* even smaller space after "Premier..." */
+  margin-bottom: 0.15rem; /* very tight before "Coursework includes..." */
+  line-height: 1.4;      /* keeps text readable but compact */
 }
 
     @media (max-width: 700px) {
@@ -533,6 +528,7 @@ document.querySelectorAll(".hover-preview").forEach(card => {
 
 </body>
 </html>
+
 
 
 
