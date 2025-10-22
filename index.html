@@ -508,8 +508,23 @@ document.querySelectorAll(".hover-preview").forEach(card => {
       btn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
     }
   </script>
+
+<!-- ===== Prevent 'Coming Soon' links from scrolling to top ===== -->
+<script>
+  document.querySelectorAll('.project-link[href="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // stops the jump to the top
+      // optional: show a quick visual cue
+      link.style.opacity = '0.6';
+      setTimeout(() => (link.style.opacity = '1'), 300);
+    });
+  });
+</script>
+
+
 </body>
 </html>
+
 
 
 
