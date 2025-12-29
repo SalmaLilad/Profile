@@ -208,11 +208,29 @@
   color: #ffe55e; /* soft yellow on hover, optional */
 }
 
+/* === GitHub Stats Cards Alignment === */
+.github-stats-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.github-stat-card {
+  height: 165px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
     @media (max-width: 700px) {
       nav a { display: block; margin: .5rem 0; }
       .toggle { position: static; margin-top: .75rem; }
       header { padding-bottom: 2.2rem; }
     }
+
+
   </style>
 </head>
 
@@ -407,16 +425,19 @@
    
     <img
 
-<img
+      <div class="github-stats-row">
+    <img
   src="https://github-readme-stats-phi-nine-57.vercel.app/api?username=SalmaLilad&show_icons=true&include_all_commits=true&count_private=true&hide_rank=false&theme=radical&hide=issues,prs"
   alt="GitHub Stats"
-  style="max-width:90%;border-radius:8px;"
->
+  class="github-stat-card"
+ *** style="max-width:90%;border-radius:8px;"
+ >
 
 <img
   src="https://github-readme-stats-phi-nine-57.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&langs_count=8&theme=radical&hide=html,css"
   alt="Top Languages"
-  style="max-width:90%;border-radius:8px;height:165px;margin-top:1rem;"
+  class="github-stat-card"
+  ***style="max-width:90%;border-radius:8px;height:165px;margin-top:1rem;"
 >
 
 </div>
@@ -579,6 +600,7 @@ document.querySelectorAll(".hover-preview").forEach(card => {
 
 </body>
 </html>
+
 
 
 
