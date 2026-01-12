@@ -56,6 +56,7 @@
     }
     [data-theme="dark"] .toggle { color: #ff4d4d; border-color: #ff4d4d; }
 
+
     nav {
       background: var(--panel);
       text-align: center;
@@ -224,14 +225,22 @@
   border-radius: 8px;
 }
 
+   
     @media (max-width: 700px) {
-      nav a { display: block; margin: .5rem 0; }
-      .toggle { position: static; margin-top: .75rem; }
-      header { padding-bottom: 2.2rem; }
-    }
-
-
-  </style>
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav a { 
+    flex: 1 1 100%;
+    display: block; 
+    margin: 0;
+  }
+  .toggle { position: static; margin-top: .75rem; }
+  header { padding-bottom: 2.2rem; }
+}
+           
+    </style>
 </head>
 
 <body>
@@ -620,6 +629,7 @@ document.querySelectorAll(".hover-preview").forEach(card => {
 
 </body>
 </html>
+
 
 
 
