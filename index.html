@@ -282,11 +282,7 @@
       <li><strong>Humanities:</strong> Scholastic Art & Writing Awards (2 Silver Keys); 3x National Spanish Exam Gold Medalist.</li>
     </ul>
   </section>
-
-  
-
-  
-  <!-- ===== INDEPENDENT RESEARCH ===== -->
+    <!-- ===== INDEPENDENT RESEARCH ===== -->
   <section id="independentresearch">
     <h2>Independent Research: ColoScreen</h2>
     <div class="card">
@@ -300,9 +296,9 @@
       </ul>
     </div>
   </section>
-
   <!-- ===== Leadership & Outreach===== -->
   <section id="codeunity">
+   
     <h2>Leadership & Outreach</h2>
     <div class="card">
       <h3>CodeUnity</h3>
@@ -312,33 +308,94 @@
       <p><strong>Curriculum:</strong> TurtleLabs – combining creative visual output with foundational programming concepts & C.O.R.E teaching app building using Python.</p>
       <p>CodeUnity bridges the gap between artistic expression and computational thinking, helping young students discover that coding can be both powerful and playful. Through interactive Python Turtle projects, students learn loops, functions, and problem-solving while creating visual artwork they're proud to share.</p>
     </div>
-  </section>
 
+    <!-- ===== SUMMER RESEARCH EXPERIENCE ===== -->
+  <section id="summer-research">
+    <h2>Summer Research Experience</h2>
+
+    <!-- Stanford AIMI -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">Stanford AIMI High School Summer Research Internship</h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">Stanford, CA (Virtual) | June 2026</span>
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Summer Research Intern — 1st Place (Perfect Methodology Score)
+      </p>
+      <ul>
+        <li>Awarded 1st Place (7 teams) with perfect methodology score from five AIMI faculty judges for PneumonAI pneumonia classifier; led interpretability and uncertainty quantification.</li>
+        <li>Designed multimodal DenseNet-121 with Albumentations, metadata fusion and two-stage training; ablation studies contributed to top model (Swin-Tiny AUC 0.862) and multimodal validation accuracy gains (from approximately 85% → 90-93%).</li>
+        <li>Implemented Grad-CAM visualizations to identify failure modes (textual artifacts, view-position labels); evaluated Bayesian CNN with Monte Carlo Dropout.</li>
+      </ul>
+    </div>
+
+    <!-- MIT Jameel Clinic -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">MIT Jameel Clinic AI & Health Summer Bootcamp</h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">Cambridge, MA (In-Person) | July 2026</span>
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Bootcamp Participant — 1st Place Hackathon Winner
+      </p>
+      <ul>
+        <li>Led 6-person team to 1st Place (10 teams) on 25,000-record synthetic EHR for EpiPen prediction with temporal cutoff at Visit 2; evaluated Random Forest, Logistic Regression, XGBoost, and MLP via ROC-AUC, F1, Recall, and Brier score.</li>
+        <li>Built end-to-end preprocessing pipeline including one-hot encoding, missing value imputation, and 80:20 train-val split with 5-fold CV; serialized production models with joblib for downstream inference; invited as 2027 TA.</li>
+      </ul>
+    </div>
+
+    <!-- Stanford iGEM -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">Stanford iGEM Bioengineering Research Program (SiBRP)</h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">Genetic Circuit | July 2026</span>
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Lead Designer & Primary Author | Selected from 5,000+ Applicants
+      </p>
+      <ul>
+        <li>Led design of a dual-input AND-gate genetic circuit in <em>E. coli</em> Nissle 1917 using split-T7 RNA polymerase to simultaneously detect nitric oxide (P<sub>norV</sub>) and ROS (P<sub>soxS</sub>) as early gut proxies for Parkinson's disease.</li>
+        <li>Integrated an sfGFP fluorescent reporter module, designed auxotrophic biocontainment mechanisms, and evaluated potential clinical applications.</li>
+      </ul>
+    </div>
+
+    <!-- Stanford SCI³ / Hamline -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">Stanford SCI³ Mini-Fellowship | Hamline Microscopy Camp</h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">Stanford, CA (Virtual) / St. Paul, MN | June 2025 – July 2025</span>
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Advanced Molecular Imaging Techniques & ESEM Experiments
+      </p>
+      <ul>
+        <li>SCI³: Advanced molecular imaging for in vivo diagnostics.</li>
+        <li>Hamline: Conducted ESEM analysis of tubular structures in hair samples from twins and compared with dog and cat hairs.</li>
+      </ul>
+    </div>
+  </section>
+  
+  </section>
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
-
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/CampQuest" target="_blank" class="project-link">CampQuest - AI-Powered Enrichment Summer Camps & Pre College Programs Finder</a></h3>
       <p>Web-scraping and AI project that helps students find STEM camps based on interest, location, and cost. Built with Python, DuckDuckGo API, Pandas, BeautifulSoup, and Llama 3 LLM.</p>
     </div>
-
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link">ML - COVID-19 Chest X-Ray Classification</a></h3>
       <p>Deep learning model using PyTorch to classify chest X-rays into COVID and non-COVID categories. Features Grad-CAM explainability and a reproducibility framework.</p>
     </div>
-
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/UCSC-PYaR-Research" target="_blank" class="project-link">UCSC - Python and Research (PyAR)</a></h3>
       <p>Studied the stellar disk kinematics of the Andromeda Galaxy.</p>
     </div>
-
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">ML - Police Search Bias Prediction</a></h3>
       <p>Machine learning model analyzing potential bias in police searches. Combines exploratory data analysis, fairness metrics, and model comparison to predict search likelihood.</p>
     </div>
-   
-    <div class="card">
+       <div class="card">
       <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">Other Machine Learning Projects</a></h3>
       <p>Collection of ML projects using Python, covering supervised learning, clustering, neural nets, and data visualization.</p>
     </div>
@@ -349,12 +406,8 @@
     <h2>Enrichment Programs</h2>
     <ul>
       <li>MIT BWSI Computational Problem Solving (Spring '26) and Applied Engineering, AI & Future Technologies (Fall '25) Programs.</li>
-      <li>MIT Jameel AI & Healthcare Bootcamp (July 2026).</li>
-      <li>Stanford Center for Artificial Intelligence in Medicine and Imaging (AIMI) Summer Research Internship program (June 2026).</li>
-      <li>Stanford Medicine Mini-Fellowship Program on Molecular Imaging Techniques (July 2026).</li>
       <li>University of California Santa Cruz Python and Research (PyAR) program.</li>
       <li>University of Minnesota Advanced AI/ML & Python Camps.</li>
-      <li>Hamline University Microscopy Camp.</li>
       <li>Fermi National Accelerator Laboratory: Saturday Morning Physics.</li>
       <li>Kode With Klossy Data Science Camp.</li>
     </ul>
