@@ -69,21 +69,27 @@
     }
     nav a:hover { color: var(--accent); }
 
-    /* ========== SECTION SPACING & CONTAINER ========== */
+ 
+   /* ========== SECTION SPACING & CONTAINER (COMPACT) ========== */
     section {
       max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1.5rem;
+      margin: 1rem auto;       /* Reduced from 2rem to 1rem */
+      padding: 1.25rem 1.5rem; /* Tighter internal padding */
       background: var(--panel);
       border-radius: 12px;
       transition: background .3s;
+    }
+
+    section + section {
+      margin-top: 1rem;        /* Ensures a uniform 1rem gap between adjacent sections */
     }
 
     h2 {
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
       padding-bottom: .35rem;
-      margin-bottom: 1rem;
+      margin-top: 0;           /* Removes default top margin on section headers */
+      margin-bottom: 0.75rem;  /* Keeps spacing tight under headers */
     }
 
     /* ========== UNIFORM LIST & BULLET ALIGNMENT ========== */
