@@ -56,7 +56,6 @@
     }
     [data-theme="dark"] .toggle { color: #ff4d4d; border-color: #ff4d4d; }
 
-
     nav {
       background: var(--panel);
       text-align: center;
@@ -70,25 +69,48 @@
     }
     nav a:hover { color: var(--accent); }
 
+    /* ========== SECTION SPACING & CONTAINER ========== */
     section {
-      max-width: 1000px; margin: 2rem auto; padding: 1rem;
-      background: var(--panel); border-radius: 12px;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--panel);
+      border-radius: 12px;
       transition: background .3s;
     }
-    section + section { margin-top: .75rem; }
 
     h2 {
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
       padding-bottom: .35rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ========== UNIFORM LIST & BULLET ALIGNMENT ========== */
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem; /* Standardized left gutter for all bullets */
+      list-style-position: outside;
+    }
+
+    li {
+      margin-bottom: 0.85rem; /* Uniform spacing between all bullet items */
+      line-height: 1.6;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
     }
 
     .card {
       background: var(--card);
-      border-radius: 10px; padding: 1rem; margin-bottom: 1rem;
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
       box-shadow: var(--shadow);
       transition: transform .2s, background .3s, box-shadow .3s;
     }
+    .card:last-child { margin-bottom: 0; }
     .card:hover { transform: translateY(-3px); }
 
     .skills-table { width: 100%; border-collapse: collapse; }
@@ -134,119 +156,80 @@
     [data-theme="dark"]  img.github-badge { filter: hue-rotate(0deg); }
     [data-theme="light"] img.github-badge { filter: hue-rotate(180deg); }
 
-  /* === Hover PDF Preview (fixed positioning) === */
-.badge-card { position: relative; }
+    /* === Hover PDF Preview (fixed positioning) === */
+    .pdf-preview {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--panel);
+      border: 2px solid var(--accent);
+      box-shadow: 0 6px 20px rgba(0,0,0,.3);
+      border-radius: 10px;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+    }
+    .pdf-preview.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-5px);
+      pointer-events: auto;
+    }
+    .pdf-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-.pdf-preview {
-  position: absolute;
-  bottom: 110%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--panel);
-  border: 2px solid var(--accent);
-  box-shadow: 0 6px 20px rgba(0,0,0,.3);
-  border-radius: 10px;
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .25s ease-in-out, transform .25s ease-in-out;
-}
-.pdf-preview.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
-  pointer-events: auto;
-}
-.pdf-preview iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+    /* === Spacing inside Education section === */
+    #education p {
+      margin-bottom: 0.6rem;
+    }
 
-/* === Enrichment Program Bullet Spacing === */
-#achievements li {
-  margin-bottom: 1rem;   /* increases vertical spacing between bullets */
-  line-height: 1.4;      /* slightly more readable line spacing */
-}
+    /* === Email Link Color Fix === */
+    #contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    #contact a:hover { text-decoration: underline; }
+    [data-theme="dark"] #contact a { color: #ffffff; }
+    [data-theme="dark"] #contact a:hover { color: #ffe55e; }
 
-/* === Academic Honors Bullet Spacing === */
-#academichonors li {
-  margin-bottom: 1rem;   /* increases vertical spacing between bullets */
-  line-height: 1.4;      /* slightly more readable line spacing */
-}
-    
-/* === Honors Program Bullet Spacing === */
-#honors li {
-  margin-bottom: 1rem;   /* increases vertical spacing between bullets */
-  line-height: 1.4;      /* slightly more readable line spacing */
-}
+    /* === GitHub Stats Cards Alignment === */
+    .github-stats-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-  
-/* === Balanced spacing inside Education section === */
-#education p:nth-of-type(2) {
-  margin-top: 0.3rem;     /* small space after “Premier...” */
-  margin-bottom: 0.4rem;  /* keep “Coursework...” close */
-  line-height: 1.5;       /* normal readability */
-}
+    .github-stat-card {
+      height: 165px;
+      width: auto;
+      max-width: 100%;
+      border-radius: 8px;
+    }
 
-#education p:nth-of-type(3) {
-  margin-top: 1.8rem;     /* extra gap before “University of Minnesota” */
-}
-
-/* === Email Link Color Fix === */
-#contact a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-#contact a:hover {
-  text-decoration: underline;
-}
-
-/* White email link in dark mode for better visibility */
-[data-theme="dark"] #contact a {
-  color: #ffffff;
-}
-
-[data-theme="dark"] #contact a:hover {
-  color: #ffe55e; /* soft yellow on hover, optional */
-}
-
-/* === GitHub Stats Cards Alignment === */
-.github-stats-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.github-stat-card {
-  height: 165px;
-  width: auto;
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-   
     @media (max-width: 700px) {
-  nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  nav a { 
-    flex: 1 1 100%;
-    display: block; 
-    margin: 0;
-  }
-  .toggle { position: static; margin-top: .75rem; }
-  header { padding-bottom: 2.2rem; }
-}
-           
-    </style>
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      nav a { 
+        flex: 1 1 100%;
+        display: block; 
+        margin: 0;
+      }
+      .toggle { position: static; margin-top: .75rem; }
+      header { padding-bottom: 2.2rem; }
+    }
+  </style>
 </head>
 
 <body>
@@ -260,7 +243,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#education">Education</a>
-     <a href="#academichonors">Academic Honors</a>
+    <a href="#academichonors">Academic Honors</a>
     <a href="#achievements">Enrichment</a>
     <a href="#honors">Honors</a>
     <a href="#independentresearch">Independent Research</a>
@@ -285,20 +268,20 @@
     <h2>Education</h2>
     <p><strong>Wayzata High School</strong>, Plymouth, MN — Class of 2029<br>
     <em>Premier public high school recognized for academic excellence and STEM rigor.</em></p>
-    <p><strong>Coursework:</strong> AP Calculus BC (Exam Score: 5, with AB subscore of 5, completed in ninth Grade), Concurrent Enrollment at Century College, C++ (grade: A), AP Computer Science A,  AP Seminar, AP Macroeconomics, AP Spanish, Honors Chemistry.</p>
-    <p><strong>Planned STEM:</strong> AP Physics C (Mechanics & E&M), AP Research, AP Chemistry, UMN PSEO Data Structures and Algorithms.<p>
-    <p><strong>Proof-Based Mathematics:</strong> (Grades 10th -- 12th):} UMTYMP ---  Linear Algebra & Differential Equations, Multivariable Calculus, and UMN PSEO Discrete Math and 4000-level Applied Linear Algebra.</p>
+    <p><strong>Coursework:</strong> AP Calculus BC (Exam Score: 5, with AB subscore of 5, completed in ninth Grade), Concurrent Enrollment at Century College, C++ (grade: A), AP Computer Science A, AP Seminar, AP Macroeconomics, AP Spanish, Honors Chemistry.</p>
+    <p><strong>Planned STEM:</strong> AP Physics C (Mechanics & E&M), AP Research, AP Chemistry, UMN PSEO Data Structures and Algorithms.</p>
+    <p><strong>Proof-Based Mathematics:</strong> (Grades 10th -- 12th): UMTYMP --- Linear Algebra & Differential Equations, Multivariable Calculus, and UMN PSEO Discrete Math and 4000-level Applied Linear Algebra.</p>
+  </section>
 
-
-    <!-- ===== ACADEMIC HONORS ===== -->
+  <!-- ===== ACADEMIC HONORS ===== -->
   <section id="academichonors">
     <h2>Academic Honors</h2>
-    </ul>
-      <li><p><strong>Research Competitions:</strong> Stanford AIMI Research Competition 1st Place & Perfect Methodology Score (2026); MIT Jameel Clinic AI & Healthcare Hackathon 1st Place (2026).</li>
-      <li><p><strong>National STEM Awards:</strong> Society of Women Engineers <strong> SWENext STEM in Action Award (1 of 25 selected nationally, 2026).</strong>li>
+    <ul>
+      <li><strong>Research Competitions:</strong> Stanford AIMI Research Competition 1st Place & Perfect Methodology Score (2026); MIT Jameel Clinic AI & Healthcare Hackathon 1st Place (2026).</li>
+      <li><strong>National STEM Awards:</strong> Society of Women Engineers <strong>SWENext STEM in Action Award</strong> (1 of 25 selected nationally, 2026).</li>
       <li>2026 NCWIT State Honorable Mention award for Aspirations in Computing.</li>
-      <li><p><strong>Humanities:</strong> Scholastic Art & Writing Awards (2 Silver Keys); 3x National Spanish Exam Gold Medalist.</li></p>
-  </ul>
+      <li><strong>Humanities:</strong> Scholastic Art & Writing Awards (2 Silver Keys); 3x National Spanish Exam Gold Medalist.</li>
+    </ul>
   </section>
     
   <!-- ===== ENRICHMENT ===== -->
@@ -314,44 +297,43 @@
       <li>Hamline University Microscopy Camp.</li>
       <li>Fermi National Accelerator Laboratory: Saturday Morning Physics.</li>
       <li>Kode With Klossy Data Science Camp.</li>
-      
-  </ul>
+    </ul>
   </section>
 
   <!-- ===== HONORS ===== -->
   <section id="honors">
     <h2>Honors & Awards</h2>
     <ul>
-     
-      <li>2nd Place, Intermediate Division- CodeHER International Programming Competition (2026). An USACO styled coding competition with participants from 25+ countries in partnership with the Competitive Programming Initiative (CPI) and sponsored by NYU Tandon, Jane Street and Non Trivial</li>
+      <li>2nd Place, Intermediate Division- CodeHER International Programming Competition (2026). An USACO styled coding competition with participants from 25+ countries in partnership with the Competitive Programming Initiative (CPI) and sponsored by NYU Tandon, Jane Street and Non Trivial.</li>
       <li>All Girls team finished in the top 20% of Open Division at the 2025 Fall MIT Informatics Tournament.</li>
       <li>2026 NCWIT State Honorable Mention award for Aspirations in Computing.</li>
-      <li>Selected for multi-state UMN High School Honor Band (9th- grade exception), Minnesota Band Directors (MBDA) 2026 State Honor Band and Minnesota Junior Winds Honor Band.</li>
+      <li>Selected for multi-state UMN High School Honor Band (9th-grade exception), Minnesota Band Directors (MBDA) 2026 State Honor Band and Minnesota Junior Winds Honor Band.</li>
       <li>Percussionist for the premier MacPhail Rimshots performance ensemble and Greater Twin Cities Youth Symphony (GTCYS).</li>
       <li>Achieved US Figure Skating Pre-Gold status; Training for Gold Skills Test.</li>
-      
+    </ul>
+  </section>
   
-<!-- ===== Independent Research ===== -->
+  <!-- ===== INDEPENDENT RESEARCH ===== -->
   <section id="independentresearch">
-    <h2>Independent Research: ColoScreen </h2>
+    <h2>Independent Research: ColoScreen</h2>
     <div class="card">
-       <h3><a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" class="project-link"> ColoScreen - Machine Learning for Early Triage of Visible Rectal Bleeding</a></h3>
-       <p><strong>ColoScreen</strong> is a medical AI research project designed leveraging Generative AI (Stable Diffusion) and Bayesian inference to detect GI pathologies i.e. detect and classify blood on toilet paper using computer vision. By leveraging a hybrid pipeline of physical data acquisition, digital compositing, and generative synthetic data (500K images), the model accounts for variances in substrate texture, lighting, and blood morphology to provide accurate triage.</p>
-       <p><strong>Current Phase: Data Engineering & Model Architecture Design </strong> </p>
-      <p>•	Engineering a generative AI pipeline (Stable Diffusion, LoRA, and Albumentations) to create 500,000+  photorealistic images utilizing AWS 8 A10G instances.</p>
-      <p>•	Standardized sensor variability using Sekonic light meter and X-Rite ColorChecker on 18% gray backgrounds to ensure dataset consistency.</p>
-      <p>•	Designing a MobileNet V3 Small machine learning architecture with a custom Bayesian CNN for uncertainty-aware triage on edge devices.</p>
-    </div>
-    
+      <h3><a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" class="project-link">ColoScreen - Machine Learning for Early Triage of Visible Rectal Bleeding</a></h3>
+      <p><strong>ColoScreen</strong> is a medical AI research project designed leveraging Generative AI (Stable Diffusion) and Bayesian inference to detect GI pathologies i.e. detect and classify blood on toilet paper using computer vision. By leveraging a hybrid pipeline of physical data acquisition, digital compositing, and generative synthetic data (500K images), the model accounts for variances in substrate texture, lighting, and blood morphology to provide accurate triage.</p>
+      <p><strong>Current Phase: Data Engineering & Model Architecture Design</strong></p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Engineering a generative AI pipeline (Stable Diffusion, LoRA, and Albumentations) to create 500,000+ photorealistic images utilizing AWS 8 A10G instances.</li>
+        <li>Standardized sensor variability using Sekonic light meter and X-Rite ColorChecker on 18% gray backgrounds to ensure dataset consistency.</li>
+        <li>Designing a MobileNet V3 Small machine learning architecture with a custom Bayesian CNN for uncertainty-aware triage on edge devices.</li>
+      </ul>
     </div>
   </section>
 
-<!-- ===== CODEUNITY ===== -->
+  <!-- ===== CODEUNITY ===== -->
   <section id="codeunity">
     <h2>Latest Venture: CodeUnity</h2>
     <div class="card">
       <h3>Co-Founder | Launched January 26, 2026 | MIT BWSI Official Sponsor of Hackathon</h3>
-       <p>Co-founded nonprofit teaching free CS to underrepresented middle-school students; grew to 70+ students across 7 states and 3 countries with MIT BWSI sponsorship.</p>
+      <p>Co-founded nonprofit teaching free CS to underrepresented middle-school students; grew to 70+ students across 7 states and 3 countries with MIT BWSI sponsorship.</p>
       <p><strong>Mission:</strong> Making computer science accessible by teaching "Coding through Art & Apps" to middle schoolers.</p>
       <p><strong>Curriculum:</strong> TurtleLabs – combining creative visual output with foundational programming concepts & C.O.R.E teaching app building using Python.</p>
       <p>CodeUnity bridges the gap between artistic expression and computational thinking, helping young students discover that coding can be both powerful and playful. Through interactive Python Turtle projects, students learn loops, functions, and problem-solving while creating visual artwork they're proud to share.</p>
@@ -362,26 +344,23 @@
   <section id="projects">
     <h2>Projects</h2>
 
-  
     <div class="card">
       <h3><a href="https://github.com/SalmaLilad/CampQuest" target="_blank" class="project-link">CampQuest - AI-Powered Enrichment Summer Camps & Pre College Programs Finder</a></h3>
-      <p>Web-scraping and AI project that helps students find STEM camps based on
-    interest, location, and cost. Built with Python, DuckDuckGo API, Pandas, BeautifulSoup,
-    and Llama 3 LLM.</p>
+      <p>Web-scraping and AI project that helps students find STEM camps based on interest, location, and cost. Built with Python, DuckDuckGo API, Pandas, BeautifulSoup, and Llama 3 LLM.</p>
     </div>
 
- <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link"> ML - COVID-19 Chest X-Ray Classification</a></h3>
+    <div class="card">
+      <h3><a href="https://github.com/SalmaLilad/Covid19-ML-Project" target="_blank" class="project-link">ML - COVID-19 Chest X-Ray Classification</a></h3>
       <p>Deep learning model using PyTorch to classify chest X-rays into COVID and non-COVID categories. Features Grad-CAM explainability and a reproducibility framework.</p>
     </div>
 
- <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/UCSC-PYaR-Research" target="_blank" class="project-link"> UCSC - Python and Research (PyAR)</a></h3>
+    <div class="card">
+      <h3><a href="https://github.com/SalmaLilad/UCSC-PYaR-Research" target="_blank" class="project-link">UCSC - Python and Research (PyAR)</a></h3>
       <p>Studied the stellar disk kinematics of the Andromeda Galaxy.</p>
     </div>
 
-              <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link"> ML - Police Search Bias Prediction</a></h3>
+    <div class="card">
+      <h3><a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">ML - Police Search Bias Prediction</a></h3>
       <p>Machine learning model analyzing potential bias in police searches. Combines exploratory data analysis, fairness metrics, and model comparison to predict search likelihood.</p>
     </div>
    
@@ -389,8 +368,7 @@
       <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">Other Machine Learning Projects</a></h3>
       <p>Collection of ML projects using Python, covering supervised learning, clustering, neural nets, and data visualization.</p>
     </div>
-
-   </section>
+  </section>
 
   <!-- ===== TECHNICAL SKILLS ===== -->
   <section id="skills">
@@ -411,139 +389,124 @@
     <p>Explore my open-source work across data science, AI, and software engineering.</p>
 
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" class="project-link"> ColoScreen Repository</a></h3>
-      <p>Detailing the workflow, image capture and synthetic image generation using Stable Diffusuion (Juggernaut XL)/ LoRA training in ComfyUI and Albumentations. </p>
+      <h3><a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" class="project-link">ColoScreen Repository</a></h3>
+      <p>Detailing the workflow, image capture and synthetic image generation using Stable Diffusion (Juggernaut XL)/ LoRA training in ComfyUI and Albumentations.</p>
     </div>
-    
         
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" class="project-link"> MIT Beaver Works – Project Website</a></h3>
+      <h3><a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" class="project-link">MIT Beaver Works – Project Website</a></h3>
       <p>Official BWSI project site built with HTML, CSS, and JavaScript with detailed documentation and linked interactive demos.</p>
     </div>
 
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link"> Machine Learning Repository</a></h3>
+      <h3><a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" class="project-link">Machine Learning Repository</a></h3>
       <p>AI/ML notebooks using scikit-learn and PyTorch. Covers data preprocessing, model evaluation, visualization, and interpretation.</p>
     </div>
 
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" class="project-link"> Java Coding Repository</a></h3>
+      <h3><a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" class="project-link">Java Coding Repository</a></h3>
       <p>Collection of Java programs, algorithms, and USACO prep problems demonstrating OOP, data structures, and algorithmic practice.</p>
     </div>
 
     <div class="card">
-      <h3><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" class="project-link"> Python Coding Repository</a></h3>
+      <h3><a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" class="project-link">Python Coding Repository</a></h3>
       <p>Foundational Python exercises and projects — scripts, games, and learning notebooks showcasing growing technical fluency.</p>
     </div>
   </section>
 
-<!-- ===== GITHUB PROFILE & STATS ===== -->
-<section id="githubstat">
-  <h2>GitHub Profile & Stats</h2>
+  <!-- ===== GITHUB PROFILE & STATS ===== -->
+  <section id="githubstat">
+    <h2>GitHub Profile & Stats</h2>
 
-  <div style="text-align:center;">
-  
-     <!--  ColoScreen -->
-    <h3 style="margin-top:1.5rem;">
-      <a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
-         ColoScreen Repository
-      </a>
-    </h3>
-    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/ColoScreen?color=ff4d4d&logo=github" alt="ColoScreen Last Commit">
-    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/ColoScreen?color=ff4d4d&logo=github" alt="ColoScreen Commit Activity">
-    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/ColoScreen?style=social" alt="ColoScreen Stars">
+    <div style="text-align:center;">
+      <!-- ColoScreen -->
+      <h3 style="margin-top:1.5rem;">
+        <a href="https://github.com/SalmaLilad/ColoScreen" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
+           ColoScreen Repository
+        </a>
+      </h3>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/ColoScreen?color=ff4d4d&logo=github" alt="ColoScreen Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/ColoScreen?color=ff4d4d&logo=github" alt="ColoScreen Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/ColoScreen?style=social" alt="ColoScreen Stars">
                   
-    <!--  Machine Learning -->
-    <h3 style="margin-top:1.5rem;">
-      <a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
-         Machine Learning Repository
-      </a>
-    </h3>
-    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
-    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
-    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
+      <!-- Machine Learning -->
+      <h3 style="margin-top:1.5rem;">
+        <a href="https://github.com/SalmaLilad/Machine-Learning" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
+           Machine Learning Repository
+        </a>
+      </h3>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Machine-Learning?color=ff4d4d&logo=github" alt="Machine Learning Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Machine-Learning?style=social" alt="Machine Learning Stars">
 
-    <!--  Python Coding -->
-    <h3 style="margin-top:1.5rem;">
-      <a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
-         Python Coding Repository
-      </a>
-    </h3>
-    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
-    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
-    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
+      <!-- Python Coding -->
+      <h3 style="margin-top:1.5rem;">
+        <a href="https://github.com/SalmaLilad/Python-Coding" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
+           Python Coding Repository
+        </a>
+      </h3>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Python-Coding?color=ff4d4d&logo=github" alt="Python Coding Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Python-Coding?style=social" alt="Python Coding Stars">
 
-    <!--  Java Coding -->
-    <h3 style="margin-top:1.5rem;">
-      <a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
-         Java Coding Repository
-      </a>
-    </h3>
-    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
-    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
-    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
+      <!-- Java Coding -->
+      <h3 style="margin-top:1.5rem;">
+        <a href="https://github.com/SalmaLilad/Java-Coding" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
+           Java Coding Repository
+        </a>
+      </h3>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/Java-Coding?color=ff4d4d&logo=github" alt="Java Coding Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/Java-Coding?style=social" alt="Java Coding Stars">
 
-    <!--  BWSI Project Website -->
-    <h3 style="margin-top:1.5rem;">
-      <a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
-         MIT BWSI Project Website
-      </a>
-    </h3>
-    <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Last Commit">
-    <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Commit Activity">
-    <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social" alt="BWSI Project Website Stars">
-  </div>
+      <!-- BWSI Project Website -->
+      <h3 style="margin-top:1.5rem;">
+        <a href="https://github.com/SalmaLilad/BWSI--Project_Website" target="_blank" style="color:var(--accent);text-decoration:none;font-weight:700;">
+           MIT BWSI Project Website
+        </a>
+      </h3>
+      <img class="github-badge" src="https://img.shields.io/github/last-commit/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Last Commit">
+      <img class="github-badge" src="https://img.shields.io/github/commit-activity/m/SalmaLilad/BWSI--Project_Website?color=ff4d4d&logo=github" alt="BWSI Project Website Commit Activity">
+      <img class="github-badge" src="https://img.shields.io/github/stars/SalmaLilad/BWSI--Project_Website?style=social" alt="BWSI Project Website Stars">
+    </div>
 
-  <!--  Language Stats -->
-    
+    <!-- Language Stats -->
     <div style="text-align:center; margin-top:2rem;">
-   
-    <img
-
       <div class="github-stats-row">
-    <img
-  src="https://github-readme-stats-phi-nine-57.vercel.app/api?username=SalmaLilad&show_icons=true&include_all_commits=true&count_private=true&hide_rank=false&theme=radical&hide=issues,prs"
-  alt="GitHub Stats"
-  class="github-stat-card"
- *** style="max-width:90%;border-radius:8px;"
- >
+        <img
+          src="https://github-readme-stats-phi-nine-57.vercel.app/api?username=SalmaLilad&show_icons=true&include_all_commits=true&count_private=true&hide_rank=false&theme=radical&hide=issues,prs"
+          alt="GitHub Stats"
+          class="github-stat-card"
+        >
+        <img
+          src="https://github-readme-stats-phi-nine-57.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&langs_count=8&theme=radical&hide=html,css"
+          alt="Top Languages"
+          class="github-stat-card"
+        >
+      </div>
 
-<img
-  src="https://github-readme-stats-phi-nine-57.vercel.app/api/top-langs/?username=SalmaLilad&layout=compact&langs_count=8&theme=radical&hide=html,css"
-  alt="Top Languages"
-  class="github-stat-card"
-  ***style="max-width:90%;border-radius:8px;height:165px;margin-top:1rem;"
->
-
-</div>
-
-<div style="text-align:center;margin-top:1rem;">
-  
-<img
-    src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d"
-    alt="Profile Views"
-  >
-
-</div>
-
-
-</section>
+      <div style="text-align:center; margin-top:1rem;">
+        <img
+          src="https://komarev.com/ghpvc/?username=SalmaLilad&style=flat-square&color=ff4d4d"
+          alt="Profile Views"
+        >
+      </div>
+    </div>
+  </section>
 
   <!-- ===== CERTIFICATES ===== -->
   <section id="certificates">
     <h2 class="section-heading">Certificates & Badges</h2>
     <div class="badge-grid">
-
-        <div class="badge-card hover-preview" data-pdf="pdf/bwsicps.pdf">
+      <div class="badge-card hover-preview" data-pdf="pdf/bwsicps.pdf">
         <img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI Yes! You can do Computational Problem Solving</p>
       </div>
 
-      
-       <div class="badge-card hover-preview" data-pdf="pdf/bwsiai.pdf">
+      <div class="badge-card hover-preview" data-pdf="pdf/bwsiai.pdf">
         <img src="img/bwsi.png" alt="MIT BWSI"><p>MIT BWSI Girls Who Can Learn Applied Engineering, AI & Future Technologies</p>
       </div>
 
-       <div class="badge-card hover-preview" data-pdf="pdf/cs50p.pdf">
+      <div class="badge-card hover-preview" data-pdf="pdf/cs50p.pdf">
         <img src="img/edx.png" alt="CS50P"><p>EdX- Harvard University CS50's Introduction to Programming with Python</p>
       </div>
   
@@ -569,9 +532,8 @@
         <img src="img/wolfram.png" alt="Wolfram"><p>Wolfram Summer Program</p>
       </div>
       <div class="badge-card hover-preview" data-pdf="pdf/mri.pdf">
-      <img src="img/umn.png" alt="MnRI"><p>UMN - Minnesota Robotics Institute</p>
+        <img src="img/umn.png" alt="MnRI"><p>UMN - Minnesota Robotics Institute</p>
       </div>
-    
     </div>
   </section>
 
@@ -603,50 +565,46 @@
     <p>© 2025 Saanvi | Coding with Curiosity & Creativity</p>
   </footer>
 
-    <!-- ===== HOVER PDF PREVIEW SCRIPT (fixed positioning + “Coming Soon”) ===== -->
-<script>
-document.querySelectorAll(".hover-preview").forEach(card => {
-  const pdfUrl = card.dataset.pdf;
-  const preview = document.createElement("div");
-  preview.classList.add("pdf-preview");
-  preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
-  card.appendChild(preview);
+  <!-- ===== HOVER PDF PREVIEW SCRIPT ===== -->
+  <script>
+    document.querySelectorAll(".hover-preview").forEach(card => {
+      const pdfUrl = card.dataset.pdf;
+      const preview = document.createElement("div");
+      preview.classList.add("pdf-preview");
+      preview.innerHTML = `<iframe src="${pdfUrl}" title="PDF Preview"></iframe>`;
+      card.appendChild(preview);
 
-  // Show preview or fallback on hover
-  card.addEventListener("mouseenter", async () => {
-    try {
-      const res = await fetch(pdfUrl, { method: "HEAD" });
-      if (!res.ok) throw new Error();
-    } catch {
-      preview.innerHTML = `
-        <div style="
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          height:100%;
-          color:var(--text);
-          font-weight:600;
-        ">
-          📄 Coming soon
-        </div>`;
-    }
-    preview.classList.add("show");
-  });
+      card.addEventListener("mouseenter", async () => {
+        try {
+          const res = await fetch(pdfUrl, { method: "HEAD" });
+          if (!res.ok) throw new Error();
+        } catch {
+          preview.innerHTML = `
+            <div style="
+              display:flex;
+              align-items:center;
+              justify-content:center;
+              height:100%;
+              color:var(--text);
+              font-weight:600;
+            ">
+              📄 Coming soon
+            </div>`;
+        }
+        preview.classList.add("show");
+      });
 
-  // Hide when mouse leaves
-  card.addEventListener("mouseleave", () => {
-    preview.classList.remove("show");
-  });
-});
-</script>
+      card.addEventListener("mouseleave", () => {
+        preview.classList.remove("show");
+      });
+    });
+  </script>
 
-
-  <!-- ===== THEME TOGGLE SCRIPT (final persistent) ===== -->
+  <!-- ===== THEME TOGGLE SCRIPT ===== -->
   <script>
     const root = document.documentElement;
     const btn = document.getElementById("themeToggle");
 
-    // Load saved theme or default to dark
     let savedTheme = localStorage.getItem("theme");
     if (!savedTheme) {
       savedTheme = "dark";
@@ -655,7 +613,6 @@ document.querySelectorAll(".hover-preview").forEach(card => {
     root.setAttribute("data-theme", savedTheme);
     updateButtonLabel(savedTheme);
 
-    // Toggle on click
     btn.addEventListener("click", () => {
       const current = root.getAttribute("data-theme");
       const next = current === "dark" ? "light" : "dark";
@@ -665,119 +622,19 @@ document.querySelectorAll(".hover-preview").forEach(card => {
     });
 
     function updateButtonLabel(theme) {
-      btn.textContent = theme === "dark" ? "☀️ Toogle to Light" : "🌙 Toggle to Dark";
+      btn.textContent = theme === "dark" ? "☀️ Toggle to Light" : "🌙 Toggle to Dark";
     }
   </script>
 
-<!-- ===== Prevent 'Coming Soon' links from scrolling to top ===== -->
-<script>
-  document.querySelectorAll('.project-link[href="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault(); // stops the jump to the top
-      // optional: show a quick visual cue
-      link.style.opacity = '0.6';
-      setTimeout(() => (link.style.opacity = '1'), 300);
+  <!-- ===== PREVENT COMING SOON LINKS JUMP ===== -->
+  <script>
+    document.querySelectorAll('.project-link[href="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        link.style.opacity = '0.6';
+        setTimeout(() => (link.style.opacity = '1'), 300);
+      });
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
