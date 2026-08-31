@@ -296,20 +296,88 @@
       </ul>
     </div>
   </section>
-  <!-- ===== Leadership & Outreach===== -->
-  <section id="codeunity">
-   
-    <h2>Leadership & Outreach</h2>
+
+  <!-- ===== RESEARCH & TECHNICAL PROJECTS ===== -->
+  <section id="projects">
+    <h2>Research & Technical Projects</h2>
+
+    <!-- Deep Learning for Medical Image Diagnostics -->
     <div class="card">
-      <h3>CodeUnity</h3>
-      <h3>Co-Founder | Launched January 26, 2026 | MIT BWSI Official Sponsor of Hackathon</h3>
-      <p>Co-founded nonprofit teaching free CS to underrepresented middle-school students; grew to 70+ students across 7 states and 3 countries with MIT BWSI sponsorship.</p>
-      <p><strong>Mission:</strong> Making computer science accessible by teaching "Coding through Art & Apps" to middle schoolers.</p>
-      <p><strong>Curriculum:</strong> TurtleLabs – combining creative visual output with foundational programming concepts & C.O.R.E teaching app building using Python.</p>
-      <p>CodeUnity bridges the gap between artistic expression and computational thinking, helping young students discover that coding can be both powerful and playful. Through interactive Python Turtle projects, students learn loops, functions, and problem-solving while creating visual artwork they're proud to share.</p>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">
+          <a href="https://github.com/SalmaLilad/ML--Covid_19_Project" target="_blank" class="project-link">
+            Deep Learning for Medical Image Diagnostics
+          </a>
+        </h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">July 2025 – July 2026</span>[cite: 1]
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Lead Developer — UMN Data Science Initiative / Independent | Python, PyTorch, Torchvision, Optuna
+      </p>[cite: 1]
+      <ul>
+        <li>Built a 4-layer PyTorch CNN from scratch and benchmarked against DenseNet-121, EfficientNetV2-S (82.4% val accuracy), ResNet-50, and Swin-Tiny under 5-fold CV; used Optuna parameter tuning across learning rates, batch sizes, and weight decay[cite: 1].</li>
+        <li>Addressed class imbalance with Focal Loss; evaluated models on PR-AUC (0.752), F1-score, Recall, and Brier score calibration (0.15), using Grad-CAM to visualize model attention on pulmonary opacities[cite: 1].</li>
+      </ul>
     </div>
 
-    <!-- ===== SUMMER RESEARCH EXPERIENCE ===== -->
+    <!-- CampQuest -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">
+          <a href="https://github.com/SalmaLilad/CampQuest" target="_blank" class="project-link">
+            CampQuest: AI-Powered Enrichment Discovery Platform
+          </a>
+        </h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">June 2025 – Present</span>[cite: 1]
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Lead Developer | Python, Supabase/SQL, Llama 3
+      </p>[cite: 1]
+      <ul>
+        <li>Prototyped an AI-powered web scraper using DuckDuckGo, Beautiful Soup, and Llama 3 to extract and standardize 1,200+ high school summer-program listings (scalable to 5,000+)[cite: 1].</li>
+        <li>Highlighted in a University of Minnesota College of Science & Engineering press release: <a href="https://z.umn.edu/CampQuest" target="_blank" class="project-link">https://z.umn.edu/CampQuest</a>[cite: 1].</li>
+        <li>Now designing Supabase (PostgreSQL) backend with custom indexing for multi-attribute filtering and distance-based search queries using the Haversine formula on ZIP code coordinates[cite: 1].</li>
+      </ul>
+    </div>
+
+    <!-- UCSC PyAR & ReComBio -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">
+          <a href="https://github.com/SalmaLilad/UCSC-PYaR-Research" target="_blank" class="project-link">
+            UCSC Python and Research (PYaR) & ReComBio
+          </a>
+        </h3>
+        <span style="font-weight: 600; color: var(--muted); font-size: 0.95rem;">Spring 2026</span>[cite: 1]
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Student Researcher — Virtual | R, Python, Anaconda, Jupyter Notebooks
+      </p>[cite: 1]
+      <ul>
+        <li>Analyzed Andromeda (M31) stellar disk kinematics and satellite bombardment history from Hubble PHAT spectra at PYaR[cite: 1].</li>
+        <li>Conducted hierarchical clustering of SARS-CoV-2 mutations and performed differential expression modeling in R at ReComBio[cite: 1].</li>
+      </ul>
+    </div>
+
+    <!-- Police Search Bias Prediction -->
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+        <h3 style="margin-bottom: 0.2rem;">
+          <a href="https://github.com/SalmaLilad/Police-Search-ML" target="_blank" class="project-link">
+            ML - Police Search Bias Prediction
+          </a>
+        </h3>
+      </div>
+      <p style="margin-top: 0.2rem; font-style: italic; color: var(--accent); font-weight: 600;">
+        Independent Developer | Python, Scikit-learn, Pandas, Matplotlib
+      </p>
+      <ul>
+        <li>Machine learning model analyzing potential bias in police searches. Combines exploratory data analysis, fairness metrics, and model comparison to predict search likelihood.</li>
+      </ul>
+    </div>
+  </section>
+
+   <!-- ===== SUMMER RESEARCH EXPERIENCE ===== -->
   <section id="summer-research">
     <h2>Summer Research Experience</h2>
 
@@ -376,6 +444,21 @@
   </section>
   
   </section>
+  
+  <!-- ===== Leadership & Outreach===== -->
+  <section id="codeunity">
+   
+    <h2>Leadership & Outreach</h2>
+    <div class="card">
+      <h3>CodeUnity</h3>
+      <h3>Co-Founder | Launched January 26, 2026 | MIT BWSI Official Sponsor of Hackathon</h3>
+      <p>Co-founded nonprofit teaching free CS to underrepresented middle-school students; grew to 70+ students across 7 states and 3 countries with MIT BWSI sponsorship.</p>
+      <p><strong>Mission:</strong> Making computer science accessible by teaching "Coding through Art & Apps" to middle schoolers.</p>
+      <p><strong>Curriculum:</strong> TurtleLabs – combining creative visual output with foundational programming concepts & C.O.R.E teaching app building using Python.</p>
+      <p>CodeUnity bridges the gap between artistic expression and computational thinking, helping young students discover that coding can be both powerful and playful. Through interactive Python Turtle projects, students learn loops, functions, and problem-solving while creating visual artwork they're proud to share.</p>
+    </div>
+
+   
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
