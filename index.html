@@ -71,25 +71,38 @@
 
  
    /* ========== SECTION SPACING & CONTAINER (COMPACT) ========== */
+   /* ========== COMPACT SECTION SPACING FIX ========== */
     section {
       max-width: 1000px;
-      margin: 1rem auto;       /* Reduced from 2rem to 1rem */
-      padding: 1.25rem 1.5rem; /* Tighter internal padding */
+      margin: 1rem auto !important; /* Cut section margin in half (16px) */
+      padding: 1rem 1.25rem;        /* Tightened internal section padding */
       background: var(--panel);
       border-radius: 12px;
       transition: background .3s;
     }
 
     section + section {
-      margin-top: 1rem;        /* Ensures a uniform 1rem gap between adjacent sections */
+      margin-top: 1rem !important; /* Eliminates stacking gaps */
+    }
+
+    /* Remove extra top whitespace inside sections */
+    section > *:first-child,
+    .card > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    /* Remove extra bottom whitespace pushing outward */
+    section > *:last-child,
+    .card > *:last-child {
+      margin-bottom: 0 !important;
     }
 
     h2 {
       color: var(--accent);
       border-bottom: 2px solid var(--accent);
-      padding-bottom: .35rem;
-      margin-top: 0;           /* Removes default top margin on section headers */
-      margin-bottom: 0.75rem;  /* Keeps spacing tight under headers */
+      padding-bottom: .25rem;
+      margin-top: 0 !important;
+      margin-bottom: 0.6rem !important;
     }
 
     /* ========== UNIFORM LIST & BULLET ALIGNMENT ========== */
